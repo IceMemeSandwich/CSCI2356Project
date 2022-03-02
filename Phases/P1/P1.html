@@ -1,0 +1,152 @@
+<!doctype html>
+
+<!--
+    Authors: Chris Churchill (A00445246) and Matt Audas (A00443042)
+    
+    1.5 hours of work as of Feb 28
+-->
+
+<html>
+  <head>
+    <title>Phase 1</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="./jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="P1.css">
+    <script src="./P1.js"></script>
+
+    </head>
+
+    <div>
+        <table>
+   
+    <th>Blog Name</th>
+    <th>Edit</th>
+    <th>Publish</th>
+    
+    <!-- first blog row  -->
+    <tr>
+        <td>
+        <input type="text" id="blog1" style="width:120px">      
+            <label class="switch" id="edit1">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+
+            <label class="switch" id="publish1">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+    </td>
+    </tr>
+
+    <!-- second blog row -->
+    <tr>
+        <td>
+        <input type="text" id="blog2" style="width:120px">      
+            <label class="switch" id="edit2">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+
+            <label class="switch" id="publish2">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+        </td>
+    </tr>
+
+    <!-- third blog row -->
+    <tr>
+        <td>
+        <input type="text" id="blog3" style="width:120px">      
+            <label class="switch" id="edit3">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+
+            <label class="switch" id="publish3">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+    </td>
+    </tr>
+        </table>
+    
+    </div>
+
+    <!-- keyboard -->
+    <p></p>
+    <p></p>
+    <div>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('1')">1</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('2')">2</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('3')">3</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('4')">4</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('5')">5</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('6')">6</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('7')">7</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('8')">8</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('9')">9</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('0')">0</a>
+        <a data-role="button" class="btn btn-dark" onclick="toUpperCase()">
+        <i class="bi-arrow-up"></i>
+      </a>
+        
+         
+      </div>
+
+      <div>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('q')">Q</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('w')">W</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('e')">E</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('r')">R</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('t')">T</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('y')">Y</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('u')">U</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('i')">I</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('o')">O</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('p')">P</a>
+        <a data-role="button" class="btn btn-dark" onclick="addChar('bksp')">
+        <i class="bi-arrow-left"></i>
+         </a>
+      </div>
+      
+      <div>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('a')">A</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('s')">S</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('d')">D</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('f')">F</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('g')">G</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('h')">H</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('j')">J</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('k')">K</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('l')">L</a>
+        <a data-role="button" class="btn btn-dark" onclick="enter()">Enter</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar(String.addChar(34))">"</a>
+      </div>
+      
+      <div>
+        
+        <a data-role="button" class="btn btn-danger" onclick="addChar('z')">Z</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('x')">X</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('c')">C</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('v')">V</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('b')">B</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('n')">N</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('m')">M</a>
+        <a data-role="button" class="btn btn-dark" onclick="addChar(' ')">space</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('.')">.</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar('?')">?</a>
+        <a data-role="button" class="btn btn-danger" onclick="addChar(',')">,</a>
+        
+      </div>
+
+
+
+</body>
+</html>
