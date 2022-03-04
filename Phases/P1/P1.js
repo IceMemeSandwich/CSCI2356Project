@@ -1,3 +1,14 @@
+// setup function
+function setup() {
+  // toggle enable offcanvas menu
+  var keyboardMenu = new bootstrap.Offcanvas(document.getElementById("keyboardMenu"));
+
+  $("#edit1").on("change", function () {
+    keyboardMenu.toggle();
+  });
+}
+
+
 // JavaScript for Keyboard
 
 function addChar(selection) {
