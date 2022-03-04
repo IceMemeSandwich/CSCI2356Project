@@ -57,3 +57,10 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/* Table Padding */
+th,
+td {
+  padding-bottom: 5px;
+  padding-right: 5px;
+}
