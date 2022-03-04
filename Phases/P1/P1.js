@@ -1,20 +1,38 @@
-// setup function
+var activeBox = 0;
+
 function setup() {
-  // toggle enable offcanvas menu
   let keyboardMenu = document.getElementById('keyboardMenu');
   let keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
+  // every switch
+  let toggles = document.querySelectorAll(".switch input");
 
+  // toggle enables offcanvas menu
+  // edit switch 1
   $("#edit1").on("change", function () {
     keyboardMenuBS.toggle();
-    console.log(document.getElementById('edit1').checked);
+    activeBox = 1;
   });
 
-  // switches toggle when keyboardMenu is closed
+  // edit switch 2
+  $("#edit2").on("change", function () {
+    keyboardMenuBS.toggle();
+    activeBox = 2;
+  });
+
+  // edit switch 3
+  $("#edit3").on("change", function () {
+    keyboardMenuBS.toggle();
+    activeBox = 3;
+  });
+
+  // switches ALL toggles when keyboardMenu is closed
+  // For now, I dont see a reason for any to be "on" when menu closed - D
   keyboardMenu.addEventListener('hide.bs.offcanvas', function () {
-    //document.getElementById('edit1').checked = false;
-    $("#edit1").prop('checked', false); //uncheck
-    console.log($("#edit1").change);
-})
+    for (let i of toggles) {
+      i.checked = false;
+    }
+    console.log(activeBox);
+  });
 }
 
 
