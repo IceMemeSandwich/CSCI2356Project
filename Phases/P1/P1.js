@@ -1,11 +1,20 @@
 // setup function
 function setup() {
   // toggle enable offcanvas menu
-  var keyboardMenu = new bootstrap.Offcanvas(document.getElementById("keyboardMenu"));
+  let keyboardMenu = document.getElementById('keyboardMenu');
+  let keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
 
   $("#edit1").on("change", function () {
-    keyboardMenu.toggle();
+    keyboardMenuBS.toggle();
+    console.log(document.getElementById('edit1').checked);
   });
+
+  // switches toggle when keyboardMenu is closed
+  keyboardMenu.addEventListener('hide.bs.offcanvas', function () {
+    //document.getElementById('edit1').checked = false;
+    $("#edit1").prop('checked', false); //uncheck
+    console.log($("#edit1").change);
+})
 }
 
 
