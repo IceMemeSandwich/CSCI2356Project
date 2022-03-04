@@ -1,0 +1,7 @@
+# npm installs
+node_modules/
+# powerpoints
+*.ppt
+*.pptx
+# jQuery
+**/jquery*
