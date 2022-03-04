@@ -1,7 +1,7 @@
 # npm installs
 node_modules/
 # powerpoints
-*.ppt
-*.pptx
+**/*.ppt
+**/*.pptx
 # jQuery
 **/jquery*
