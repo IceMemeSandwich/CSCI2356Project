@@ -1,8 +1,8 @@
 // Put this in another file because it will be long and I don't want it in the main file
 // Formating:
 //      keyid: [
-//         lowercase,
-//         uppercase,
+//         lowercase (0),
+//         uppercase (1),
 // ]       
 const KEYS = {
     // number row
@@ -55,7 +55,7 @@ const KEYS = {
         "0",
         ")"
     ],
-    
+
     // first row
     "qBtn": [
         "q",
