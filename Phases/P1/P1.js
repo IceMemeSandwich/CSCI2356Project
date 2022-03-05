@@ -12,18 +12,27 @@ function setup() {
   $("#edit1").on("change", function () {
     keyboardMenuBS.toggle();
     activeBox = 1;
+    var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
+    console.log(retrievedBoxObject);
+    document.getElementById("textInputBox").value = retrievedBoxObject;
   });
 
   // edit switch 2
   $("#edit2").on("change", function () {
     keyboardMenuBS.toggle();
     activeBox = 2;
+    var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
+    console.log(retrievedBoxObject)
+    document.getElementById("textInputBox").value = retrievedBoxObject;
   });
 
   // edit switch 3
   $("#edit3").on("change", function () {
     keyboardMenuBS.toggle();
     activeBox = 3;
+    var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
+    console.log(retrievedBoxObject);
+    document.getElementById("textInputBox").value = retrievedBoxObject;
   });
 
   // switches ALL toggles when keyboardMenu is closed
@@ -68,3 +77,21 @@ function toCaps() {
   capsPressed = true;
 }
 // end of keyboard JavaScript
+
+/**
+ * Function to save the values of the text boxes into individual objects stored in local storage
+ * written by Connor MacNeil
+ */
+function saveTextBox() {
+  if (activeBox == 1) {
+    console.log($("#textInputBox").val());
+    window.localStorage.setItem('box1', JSON.stringify($("#textInputBox").val()));
+  } else if (activeBox == 2) {
+    console.log($("textInputBox").val());
+    window.localStorage.setItem('box2', JSON.stringify($("#textInputBox").val()));
+  } else if (activeBox == 3) {
+    console.log($("textInputBox").val());
+    window.localStorage.setItem('box3', JSON.stringify($("#textInputBox").val()));
+  }
+  
+}
