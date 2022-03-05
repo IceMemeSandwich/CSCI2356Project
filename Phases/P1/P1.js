@@ -1,3 +1,5 @@
+
+
 var activeBox = 0;
 var capsPressed = false;
 
@@ -61,7 +63,7 @@ function addChar(selection) {
   } else if (capsPressed == true) {
     // Set the id'ed field to the (capitalized) longer string
     $("#textInputBox").val(currChars.concat(selectionCaps));
-    capsPressed = false;
+    toCaps(false);
   } else {
     // Set the id'ed field to the longer string
     $("#textInputBox").val(currChars.concat(selection));
@@ -73,9 +75,23 @@ function enter() {
   content = $("#textInputBox").val(content.concat("\n"));
 }
 
-function toCaps() {
-  capsPressed = true;
+// Devin
+function toCaps(capsOn) {
+  console.log(capsOn);
+  switch (capsOn) {
+    case false:
+      // Make the output not caps
+      capsPressed = false;
+      break
+    case true:
+      // Make the output caps
+      console.log("Caps On");
+      capsPressed = true;
+      break
+  }
 }
+
+
 // end of keyboard JavaScript
 
 /**
