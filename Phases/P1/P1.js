@@ -1,4 +1,5 @@
 var activeBox = 0;
+var capsPressed = false;
 
 function setup() {
   let keyboardMenu = document.getElementById('keyboardMenu');
@@ -33,33 +34,37 @@ function setup() {
     }
     console.log(activeBox);
   });
+
+  
 }
 
 
 // JavaScript for Keyboard
 
 function addChar(selection) {
-    // Get the value from the id'ed field
-    var currChars = $("#words").val();
+  // Get the value from the id'ed field
+  var currChars = $("#textInputBox").val();
+  var selectionCaps = selection.toUpperCase(); 
   
-    if (selection === "bksp") {
-      // Set the id'ed field to a shortened string
-      $("#words").val(currChars.substring(0, currChars.length - 1));
-    } else {
-      // Set the id'ed field to the longer string
-      $("#words").val(currChars.concat(selection));
-    }
+  if (selection === "bksp") {
+    // Set the id'ed field to a shortened string
+    $("#textInputBox").val(currChars.substring(0, currChars.length - 1));
+  } else if (capsPressed == true) {
+    // Set the id'ed field to the (capitalized) longer string
+    $("#textInputBox").val(currChars.concat(selectionCaps));
+    capsPressed = false;
+  } else {
+    // Set the id'ed field to the longer string
+    $("#textInputBox").val(currChars.concat(selection));
   }
+}
   
-  function enter() {
-    var content = $("#words").val();
-    console.log(content);
-    $("#words").val("");
-  }
+function enter() {
+  var content = $("#textInputBox").val();
+  content = $("#textInputBox").val(content.concat("\n"));
+}
 
-  function toUpperCase() {
-    caps = "true";
-    let str = "CAPS ON"
-    document.getElementById("header").innerHTML = str.fontcolor("red");
-  }
+function toCaps() {
+  capsPressed = true;
+}
 // end of keyboard JavaScript
