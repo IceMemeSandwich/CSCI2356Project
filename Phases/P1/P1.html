@@ -22,6 +22,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <link rel="stylesheet" href="P1.css">
     <script src="./P1.js"></script>
+    <!-- Import keyboard json -->
+    <script src="./keyboard.js"></script>
 
     </head>
   <body onload="setup()">
@@ -106,17 +108,17 @@
         <tr>
           <td> <!-- keyboard -->
             <div>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('1')">1</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('2')">2</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('3')">3</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('4')">4</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('5')">5</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('6')">6</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('7')">7</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('8')">8</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('9')">9</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('0')">0</a>
-              <a data-role="button" class="btn btn-dark" onclick="toCaps()">
+              <a data-role="button" class="btn btn-danger" id="oneBtn" onclick="addChar('oneBtn')">1</a>
+              <a data-role="button" class="btn btn-danger" id="twoBtn" onclick="addChar('twoBtn')">2</a>
+              <a data-role="button" class="btn btn-danger" id="threeBtn" onclick="addChar('threeBtn')">3</a>
+              <a data-role="button" class="btn btn-danger" id="fourBtn" onclick="addChar('fourBtn')">4</a>
+              <a data-role="button" class="btn btn-danger" id="fiveBtn" onclick="addChar('fiveBtn')">5</a>
+              <a data-role="button" class="btn btn-danger" id="sixBtn" onclick="addChar('sixBtn')">6</a>
+              <a data-role="button" class="btn btn-danger" id="sevenBtn" onclick="addChar('sevenBtn')">7</a>
+              <a data-role="button" class="btn btn-danger" id="eightBtn" onclick="addChar('eightBtn')">8</a>
+              <a data-role="button" class="btn btn-danger" id="nineBtn" onclick="addChar('nineBtn')">9</a>
+              <a data-role="button" class="btn btn-danger" id="zeroBtn" onclick="addChar('zeroBtn')">0</a>
+              <a data-role="button" class="btn btn-dark" id="capsBtn" onclick="toCaps(true)">
               <i class="bi-arrow-up"></i>
             </a>
               
@@ -124,48 +126,48 @@
             </div>
           
             <div>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('q')">Q</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('w')">W</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('e')">E</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('r')">R</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('t')">T</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('y')">Y</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('u')">U</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('i')">I</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('o')">O</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('p')">P</a>
-              <a data-role="button" class="btn btn-dark" onclick="addChar('bksp')">
+              <a data-role="button" class="btn btn-danger" id="qBtn" onclick="addChar('qBtn')">q</a>
+              <a data-role="button" class="btn btn-danger" id="wBtn" onclick="addChar('wBtn')">w</a>
+              <a data-role="button" class="btn btn-danger" id="eBtn" onclick="addChar('eBtn')">e</a>
+              <a data-role="button" class="btn btn-danger" id="rBtn" onclick="addChar('rBtn')">r</a>
+              <a data-role="button" class="btn btn-danger" id="tBtn" onclick="addChar('tBtn')">t</a>
+              <a data-role="button" class="btn btn-danger" id="yBtn" onclick="addChar('yBtn')">y</a>
+              <a data-role="button" class="btn btn-danger" id="uBtn" onclick="addChar('uBtn')">u</a>
+              <a data-role="button" class="btn btn-danger" id="iBtn" onclick="addChar('iBtn')">i</a>
+              <a data-role="button" class="btn btn-danger" id="oBtn" onclick="addChar('oBtn')">o</a>
+              <a data-role="button" class="btn btn-danger" id="pBtn" onclick="addChar('pBtn')">p</a>
+              <a data-role="button" class="btn btn-dark" id="backBtn" onclick="addChar('bksp')">
               <i class="bi-arrow-left"></i>
               </a>
             </div>
             
             <div>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('a')">A</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('s')">S</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('d')">D</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('f')">F</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('g')">G</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('h')">H</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('j')">J</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('k')">K</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('l')">L</a>
-              <a data-role="button" class="btn btn-dark" onclick="enter()">Enter</a>
-              <a data-role="button" class="btn btn-danger" onclick='addChar("\"")'>"</a>
+              <a data-role="button" class="btn btn-danger" id="aBtn" onclick="addChar('aBtn')">a</a>
+              <a data-role="button" class="btn btn-danger" id="sBtn" onclick="addChar('sBtn')">s</a>
+              <a data-role="button" class="btn btn-danger" id="dBtn" onclick="addChar('dBtn')">d</a>
+              <a data-role="button" class="btn btn-danger" id="fBtn" onclick="addChar('fBtn')">f</a>
+              <a data-role="button" class="btn btn-danger" id="gBtn" onclick="addChar('gBtn')">g</a>
+              <a data-role="button" class="btn btn-danger" id="hBtn" onclick="addChar('hBtn')">h</a>
+              <a data-role="button" class="btn btn-danger" id="jBtn" onclick="addChar('jBtn')">j</a>
+              <a data-role="button" class="btn btn-danger" id="kBtn" onclick="addChar('kBtn')">k</a>
+              <a data-role="button" class="btn btn-danger" id="lBtn" onclick="addChar('lBtn')">l</a>
+              <a data-role="button" class="btn btn-dark" id="enterBtn" onclick="addChar('enter')">Enter</a>
+              <a data-role="button" class="btn btn-danger" id="quoteBtn" onclick='addChar("\"")'>"</a>
             </div>
             
             <div>
               
-              <a data-role="button" class="btn btn-danger" onclick="addChar('z')">Z</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('x')">X</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('c')">C</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('v')">V</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('b')">B</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('n')">N</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('m')">M</a>
-              <a data-role="button" class="btn btn-dark" onclick="addChar(' ')">Space</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('.')">.</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar('?')">?</a>
-              <a data-role="button" class="btn btn-danger" onclick="addChar(',')">,</a>
+              <a data-role="button" class="btn btn-danger" id="zBtn" onclick="addChar('zBtn')">z</a>
+              <a data-role="button" class="btn btn-danger" id="xBtn" onclick="addChar('xBtn')">x</a>
+              <a data-role="button" class="btn btn-danger" id="cBtn" onclick="addChar('cBtn')">c</a>
+              <a data-role="button" class="btn btn-danger" id="vBtn" onclick="addChar('vBtn')">v</a>
+              <a data-role="button" class="btn btn-danger" id="bBtn" onclick="addChar('bBtn')">b</a>
+              <a data-role="button" class="btn btn-danger" id="nBtn" onclick="addChar('nBtn')">n</a>
+              <a data-role="button" class="btn btn-danger" id="mBtn" onclick="addChar('mBtn')">m</a>
+              <a data-role="button" class="btn btn-dark" id="spaceBtn" onclick="addChar(' ')">Space</a>
+              <a data-role="button" class="btn btn-danger" id="dotBtn" onclick="addChar('.')">.</a>
+              <a data-role="button" class="btn btn-danger" id="qmarkBtn" onclick="addChar('?')">?</a>
+              <a data-role="button" class="btn btn-danger" id="commaBtn" onclick="addChar(',')">,</a>
               
             </div>
 

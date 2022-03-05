@@ -48,41 +48,11 @@ function setup() {
 }
 
 
-// JavaScript for Keyboard
-
-function addChar(selection) {
-  // Get the value from the id'ed field
-  var currChars = $("#textInputBox").val();
-  var selectionCaps = selection.toUpperCase(); 
-  
-  if (selection === "bksp") {
-    // Set the id'ed field to a shortened string
-    $("#textInputBox").val(currChars.substring(0, currChars.length - 1));
-  } else if (capsPressed == true) {
-    // Set the id'ed field to the (capitalized) longer string
-    $("#textInputBox").val(currChars.concat(selectionCaps));
-    capsPressed = false;
-  } else {
-    // Set the id'ed field to the longer string
-    $("#textInputBox").val(currChars.concat(selection));
-  }
-}
-  
-function enter() {
-  var content = $("#textInputBox").val();
-  content = $("#textInputBox").val(content.concat("\n"));
-}
-
-function toCaps() {
-  capsPressed = true;
-}
-// end of keyboard JavaScript
-
 /**
  * Function to save the values of the text boxes into individual objects stored in local storage
  * written by Connor MacNeil
  */
-function saveTextBox() {
+ function saveTextBox() {
   if (activeBox == 1) {
     console.log($("#textInputBox").val());
     window.localStorage.setItem('box1', JSON.stringify($("#textInputBox").val()));
@@ -94,4 +64,83 @@ function saveTextBox() {
     window.localStorage.setItem('box3', JSON.stringify($("#textInputBox").val()));
   }
   
+}
+
+// JavaScript for Keyboard
+
+
+
+// Devin
+function toCaps(capsOn) {
+  let n = Object.keys(KEYS);
+  switch (capsOn) {
+    case false:
+      // Make the output not caps
+      capsPressed = false;
+      for (let i of n) {
+        document.getElementById(i).text = KEYS[i][0];
+      }
+      break
+    case true:
+      // Make the output caps
+      capsPressed = true;
+      for (let i of n) {
+        document.getElementById(i).text = KEYS[i][1];
+      }
+      break
+  }
+}
+
+// Writing anything after this function will not work (for what reason i have no clue)
+// don't use switch statements kids, because they suck
+
+function addChar(selection) {
+  // Get the value from the id'ed field
+  let currChars = $("#textInputBox").val();
+
+  switch (selection) {
+    case "bksp":
+      // Set the id'ed field to a shortened string
+      // Connor M.
+      $("#textInputBox").val(currChars.substring(0, currChars.length - 1));
+      break;
+    case "enter":
+      // Connor M.
+      currChars = $("#textInputBox").val(currChars.concat("\n"));
+      break;
+    default:
+      switch (capsPressed) {
+        case true:
+          $("#textInputBox").val(currChars.concat(KEYS[selection][1]));
+          toCaps(false);
+          break;
+        case false:
+          $("#textInputBox").val(currChars.concat(KEYS[selection][0]));
+          break;
+      }
+  } 
+
+  // pre file
+
+  // if (selection === "bksp") {
+  //   // Set the id'ed field to a shortened string
+  //   $("#textInputBox").val(currChars.substring(0, currChars.length - 1));
+  // } else if (capsPressed == true) {
+  //   KEYS.${selection}
+  //   // Set the id'ed field to the (capitalized) longer string
+  //   $("#textInputBox").val(currChars.concat(KEYS.${selection}));
+  //   toCaps(false);
+  // } else {
+  //   // Set the id'ed field to the longer string
+  //   $("#textInputBox").val(currChars.concat(selection));
+//   }
+// }
+  
+// function enter() {
+//   var content = $("#textInputBox").val();
+//   content = $("#textInputBox").val(content.concat("\n"));
+// }
+
+// end of keyboard JavaScript
+
 }
