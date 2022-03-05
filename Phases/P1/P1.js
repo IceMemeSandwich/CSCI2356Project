@@ -120,27 +120,6 @@ function addChar(selection) {
       }
   } 
 
-  // pre file
 
-  // if (selection === "bksp") {
-  //   // Set the id'ed field to a shortened string
-  //   $("#textInputBox").val(currChars.substring(0, currChars.length - 1));
-  // } else if (capsPressed == true) {
-  //   KEYS.${selection}
-  //   // Set the id'ed field to the (capitalized) longer string
-  //   $("#textInputBox").val(currChars.concat(KEYS.${selection}));
-  //   toCaps(false);
-  // } else {
-  //   // Set the id'ed field to the longer string
-  //   $("#textInputBox").val(currChars.concat(selection));
-//   }
-// }
-  
-// function enter() {
-//   var content = $("#textInputBox").val();
-//   content = $("#textInputBox").val(content.concat("\n"));
-// }
-
-// end of keyboard JavaScript
 
 }
