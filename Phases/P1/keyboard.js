@@ -190,4 +190,25 @@ const KEYS = {
         "M"
     ],
 
+    // Missing Button
+
+    "quoteBtn": [
+        "'",
+        "\""
+    ],
+
+    "dotBtn": [
+        ".",
+        ">"
+    ],
+
+    "qmarkBtn": [
+        "?",
+        "/"
+    ],
+
+    "commaBtn": [
+        ",",
+        "<"
+    ]
 }

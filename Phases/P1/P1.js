@@ -108,6 +108,9 @@ function addChar(selection) {
       // Connor M.
       currChars = $("#textInputBox").val(currChars.concat("\n"));
       break;
+    case "space":
+      currChars = $("#textInputBox").val(currChars.concat(" "));
+      break;
     default:
       switch (capsPressed) {
         case true:
