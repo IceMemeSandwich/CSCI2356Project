@@ -1,4 +1,16 @@
-/* By Chris Churchill and Matt Audas */
+/*  By Chris Churchill and Matt Audas */
+
+.large {
+  width: 70px;
+}
+
+.normal {
+  width: 36px;
+}
+
+.pig {
+  width: 102px;
+}
 
 .switch {
   position: relative;
