@@ -15,6 +15,10 @@ function setup() {
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
     console.log(retrievedBoxObject);
     document.getElementById("textInputBox").value = retrievedBoxObject;
+
+    // make other edit toggles hidden when select edit1 - Chris and Matt
+    document.getElementById("edit2").style.visibility = "hidden";
+    document.getElementById("edit3").style.visibility = "hidden";
   });
 
   // edit switch 2
@@ -24,6 +28,10 @@ function setup() {
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
     console.log(retrievedBoxObject)
     document.getElementById("textInputBox").value = retrievedBoxObject;
+
+    // make other edit toggles hidden when select edit2 - Chris and Matt
+    document.getElementById("edit1").style.visibility = "hidden";
+    document.getElementById("edit3").style.visibility = "hidden";
   });
 
   // edit switch 3
@@ -33,6 +41,10 @@ function setup() {
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
     console.log(retrievedBoxObject);
     document.getElementById("textInputBox").value = retrievedBoxObject;
+
+    // make other edit toggles hidden when select edit3 - Chris and Matt
+    document.getElementById("edit1").style.visibility = "hidden";
+    document.getElementById("edit2").style.visibility = "hidden";
   });
 
   // switches ALL toggles when keyboardMenu is closed
@@ -42,6 +54,11 @@ function setup() {
       i.checked = false;
     }
     console.log(activeBox);
+
+    // make all toggles visible when closing toggle - Chris and Matts
+    document.getElementById("edit1").style.visibility = "visible";
+    document.getElementById("edit2").style.visibility = "visible";
+    document.getElementById("edit3").style.visibility = "visible";
   });
 
   
