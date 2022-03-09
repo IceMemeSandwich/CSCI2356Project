@@ -13,7 +13,6 @@ function setup() {
     keyboardMenuBS.toggle();
     activeBox = 1;
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
-    console.log(retrievedBoxObject);
     document.getElementById("textInputBox").value = retrievedBoxObject;
 
     // make other edit toggles hidden when select edit1 - Chris and Matt
@@ -26,7 +25,6 @@ function setup() {
     keyboardMenuBS.toggle();
     activeBox = 2;
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
-    console.log(retrievedBoxObject)
     document.getElementById("textInputBox").value = retrievedBoxObject;
 
     // make other edit toggles hidden when select edit2 - Chris and Matt
@@ -39,7 +37,6 @@ function setup() {
     keyboardMenuBS.toggle();
     activeBox = 3;
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
-    console.log(retrievedBoxObject);
     document.getElementById("textInputBox").value = retrievedBoxObject;
 
     // make other edit toggles hidden when select edit3 - Chris and Matt
@@ -53,8 +50,7 @@ function setup() {
     for (let i of toggles) {
       i.checked = false;
     }
-    console.log(activeBox);
-
+    saveTextBox();
     // make all toggles visible when closing toggle - Chris and Matts
     document.getElementById("edit1").style.visibility = "visible";
     document.getElementById("edit2").style.visibility = "visible";
@@ -71,16 +67,24 @@ function setup() {
  */
  function saveTextBox() {
   if (activeBox == 1) {
-    console.log($("#textInputBox").val());
     window.localStorage.setItem('box1', JSON.stringify($("#textInputBox").val()));
   } else if (activeBox == 2) {
-    console.log($("textInputBox").val());
     window.localStorage.setItem('box2', JSON.stringify($("#textInputBox").val()));
   } else if (activeBox == 3) {
-    console.log($("textInputBox").val());
     window.localStorage.setItem('box3', JSON.stringify($("#textInputBox").val()));
   }
   
+}
+
+function clearLocalCopy() {
+  var clearI = confirm("Do you want to delete your work?");
+  switch (clearI){
+    case false:
+      break;
+    default:
+      $("#textInputBox").val("");
+      saveTextBox();
+  }
 }
 
 // JavaScript for Keyboard

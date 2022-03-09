@@ -107,7 +107,7 @@
     <!-- keyboard (in an offcanvas way)-->
     <!-- Done by Devin R. (Besides the keyboard itself) -->
     <!-- Keyboard design done by Chris Churchill and Matt Audas -->
-    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="keyboardMenu" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="keyboardMenu" aria-labelledby="keyboardMenu">
       <table>
         <tr>
           <td> <!-- keyboard -->
@@ -186,10 +186,11 @@
             </div>
           </td>
           <td>
-            <div class="btn-group" role="group" aria-label="Top Text Entry Buttons">
+            <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
               <button type="button" class="btn btn-primary" id="saveBtnTop" onclick="saveTextBox()">Save</button>
               <!-- Closes menu (for now) -->
-              <button type="button" class="btn btn-danger" id="cancelBtnTop" data-bs-dismiss="offcanvas">Cancel</button>
+              <button type="button" class="btn btn-secondary" id="cancelBtnTop" data-bs-dismiss="offcanvas">Cancel</button>
+              <button type="button" class="btn btn-danger" id="clearBtnTop" onclick="clearLocalCopy()">Clear</button>
             </div>
 
             <div>
@@ -199,7 +200,8 @@
             <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
               <button type="button" class="btn btn-primary" id="saveBtnBottom" onclick="saveTextBox()">Save</button>
               <!-- Closes menu (for now) -->
-              <button type="button" class="btn btn-danger" id="cancelBtnBottom" data-bs-dismiss="offcanvas">Cancel</button>
+              <button type="button" class="btn btn-secondary" id="cancelBtnBottom" data-bs-dismiss="offcanvas">Cancel</button>
+              <button type="button" class="btn btn-danger" id="clearBtnBottom" onclick="clearLocalCopy()">Clear</button>
             </div>
           </td>
         </tr>
