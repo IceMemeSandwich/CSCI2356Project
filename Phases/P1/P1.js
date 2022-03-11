@@ -92,17 +92,17 @@ function clearLocalCopy() {
 
 
 // Devin
-function toCaps(capsOn) {
+function toCaps() {
   let n = Object.keys(KEYS);
-  switch (capsOn) {
-    case false:
+  switch (capsPressed) {
+    case true:
       // Make the output not caps
       capsPressed = false;
       for (let i of n) {
         document.getElementById(i).text = KEYS[i][0];
       }
       break
-    case true:
+    case false:
       // Make the output caps
       capsPressed = true;
       for (let i of n) {
