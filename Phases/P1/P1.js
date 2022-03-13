@@ -51,7 +51,8 @@ function setup() {
       i.checked = false;
     }
     saveTextBox();
-    // make all toggles visible when closing toggle - Chris and Matts
+    
+    // make all toggles visible when closing menu - Chris and Matt
     document.getElementById("edit1").style.visibility = "visible";
     document.getElementById("edit2").style.visibility = "visible";
     document.getElementById("edit3").style.visibility = "visible";
