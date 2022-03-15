@@ -78,34 +78,6 @@
             </label>
           </td>
       </tr>
-
-      <tr id="editArea1" style="display:none;">
-        <th colspan="1">
-          <div id="editarea" style="display:none">
-            <td>
-              <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
-                <button type="button" class="btn btn-primary" id="saveBtnTop" onclick="saveTextBox()">Save</button>
-                <!-- Closes menu (for now) -->
-                <button type="button" class="btn btn-secondary" id="cancelBtnTop" onclick="closeEdit()">Close</button>
-                <button type="button" class="btn btn-danger" id="clearBtnTop" onclick="clearLocalCopy()">Clear</button>
-                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
-                  <i class="bi bi-keyboard"></i>
-                </button>
-              </div>
-    
-              <div>
-                <textarea id="textInputBox"  rows="4" cols="40" placeholder="Put Text Here!"></textarea>
-              </div>
-    
-              <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
-                <button type="button" class="btn btn-primary" id="saveBtnBottom" onclick="saveTextBox()">Save</button>
-                <!-- Closes menu (for now) -->
-                <button type="button" class="btn btn-secondary" id="cancelBtnBottom" onclick="closeEdit()">Close</button>
-                <button type="button" class="btn btn-danger" id="clearBtnBottom" onclick="clearLocalCopy()">Clear</button>
-              </div>
-          </div>
-        </th>
-      </tr>
       <!-- second blog row -->
       <tr>
         <td>
@@ -125,34 +97,6 @@
             <span class="slider round"></span>
           </label>
         </td>
-      </tr>
-
-      <tr id="editArea2" style="display:none;">
-        <th colspan="1">
-          <div id="editarea" style="display:none">
-            <td>
-              <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
-                <button type="button" class="btn btn-primary" id="saveBtnTop" onclick="saveTextBox()">Save</button>
-                <!-- Closes menu (for now) -->
-                <button type="button" class="btn btn-secondary" id="cancelBtnTop" onclick="closeEdit()">Close</button>
-                <button type="button" class="btn btn-danger" id="clearBtnTop" onclick="clearLocalCopy()">Clear</button>
-                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
-                  <i class="bi bi-keyboard"></i>
-                </button>
-              </div>
-    
-              <div>
-                <textarea id="textInputBox"  rows="4" cols="40" placeholder="Put Text Here!"></textarea>
-              </div>
-    
-              <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
-                <button type="button" class="btn btn-primary" id="saveBtnBottom" onclick="saveTextBox()">Save</button>
-                <!-- Closes menu (for now) -->
-                <button type="button" class="btn btn-secondary" id="cancelBtnBottom" onclick="closeEdit()">Close</button>
-                <button type="button" class="btn btn-danger" id="clearBtnBottom" onclick="clearLocalCopy()">Clear</button>
-              </div>
-          </div>
-        </th>
       </tr>
       <!-- third blog row -->
       <tr>
@@ -175,37 +119,34 @@
             </label>
           </td>
       </tr>
-      <tr id="editArea3" style="display:none;">
-        <th colspan="1">
-          <div id="editarea" style="display:none">
-            <td>
-              <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
-                <button type="button" class="btn btn-primary" id="saveBtnTop" onclick="saveTextBox()">Save</button>
-                <!-- Closes menu (for now) -->
-                <button type="button" class="btn btn-secondary" id="cancelBtnTop" onclick="closeEdit()">Close</button>
-                <button type="button" class="btn btn-danger" id="clearBtnTop" onclick="clearLocalCopy()">Clear</button>
-                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
-                  <i class="bi bi-keyboard"></i>
-                </button>
-              </div>
-    
-              <div>
-                <textarea id="textInputBox"  rows="4" cols="40" placeholder="Put Text Here!"></textarea>
-              </div>
-    
-              <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
-                <button type="button" class="btn btn-primary" id="saveBtnBottom" onclick="saveTextBox()">Save</button>
-                <!-- Closes menu (for now) -->
-                <button type="button" class="btn btn-secondary" id="cancelBtnBottom" onclick="closeEdit()">Close</button>
-                <button type="button" class="btn btn-danger" id="clearBtnBottom" onclick="clearLocalCopy()">Clear</button>
-              </div>
-          </div>
-        </th>
-      </tr>
-      </tr>
     </table>
 
     </div>
+
+    <div id="editArea" style="display:none">
+      <td>
+        <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
+          <button type="button" class="btn btn-primary" id="saveBtnTop" onclick="saveTextBox()">Save</button>
+          <!-- Closes menu (for now) -->
+          <button type="button" class="btn btn-secondary" id="cancelBtnTop" onclick="closeEdit()">Close</button>
+          <button type="button" class="btn btn-danger" id="clearBtnTop" onclick="clearLocalCopy()">Clear</button>
+          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
+            <i class="bi bi-keyboard"></i>
+          </button>
+        </div>
+
+        <div>
+          <textarea id="textInputBox"  rows="4" cols="40" placeholder="Put Text Here!"></textarea>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
+          <button type="button" class="btn btn-primary" id="saveBtnBottom" onclick="saveTextBox()">Save</button>
+          <!-- Closes menu (for now) -->
+          <button type="button" class="btn btn-secondary" id="cancelBtnBottom" onclick="closeEdit()">Close</button>
+          <button type="button" class="btn btn-danger" id="clearBtnBottom" onclick="clearLocalCopy()">Clear</button>
+        </div>
+    </div>
+
 
     <!-- keyboard (in an offcanvas way)-->
     <!-- Done by Devin R. (Besides the keyboard itself) -->

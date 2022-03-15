@@ -3,54 +3,75 @@ var activeBox = 0;
 var capsPressed = false;
 
 function setup() {
-  // edit switch 1
-  $("#edit1").on("change", function () {
-    document.getElementById("editarea").style.display = "block";
-    activeBox = 1;
-    var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
-    document.getElementById("textInputBox").value = retrievedBoxObject;
+  let toggles = document.querySelectorAll(".switch input");
+  let editArea = document.getElementById("editArea");
 
-    // Make other toggles disabled when edit1 is selected - Devin
-    var toggles = document.querySelectorAll(".switch input");
-    for (let i of toggles) {
-      switch (i.checked) {
-        case (false):
-          i.disabled = true;
-      }
+  // edit switch 1
+  $("#edit1").on("change", function (event) {
+    switch (event.target.checked) {
+      case false:
+        closeEdit();
+        editArea.style.display = "none";
+        break;
+      case true:
+        editArea.style.display = "block";
+        activeBox = 1;
+        var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
+        document.getElementById("textInputBox").value = retrievedBoxObject;
+        // Make other toggles disabled when edit1 is selected - Devin
+        for (let i of toggles) {
+          switch (i.checked) {
+            case (false):
+              i.disabled = true;
+        }
+        }
+        break;
     }
   });
 
   // edit switch 2
-  $("#edit2").on("change", function () {
-    document.getElementById("editarea").style.display = "block";
-    activeBox = 2;
-    var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
-    document.getElementById("textInputBox").value = retrievedBoxObject;
-
-    // Make other toggles disabled when edit1 is selected - Devin
-    var toggles = document.querySelectorAll(".switch input");
-    for (let i of toggles) {
-      switch (i.checked) {
-        case (false):
-          i.disabled = true;
-      }
+  $("#edit2").on("change", function (event) {
+    switch (event.target.checked) {
+      case false:
+        closeEdit();
+        editArea.style.display = "none";
+        break;
+      case true:
+        editArea.style.display = "block";
+        activeBox = 2;
+        var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
+        document.getElementById("textInputBox").value = retrievedBoxObject;
+        // Make other toggles disabled when edit2 is selected - Devin
+        for (let i of toggles) {
+          switch (i.checked) {
+            case (false):
+              i.disabled = true;
+          }
+          }
+          break;
     }
   });
 
   // edit switch 3
-  $("#edit3").on("change", function () {
-    document.getElementById("editarea").style.display = "block";
-    activeBox = 3;
-    var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
-    document.getElementById("textInputBox").value = retrievedBoxObject;
-
-    // Make other toggles disabled when edit1 is selected - Devin
-    var toggles = document.querySelectorAll(".switch input");
-    for (let i of toggles) {
-      switch (i.checked) {
-        case (false):
-          i.disabled = true;
-      }
+  $("#edit3").on("change", function (event) {
+    switch (event.target.checked) {
+      case false:
+        closeEdit();
+        editArea.style.display = "none";
+        break;
+      case true:
+        editArea.style.display = "block";
+        activeBox = 3;
+        var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
+        document.getElementById("textInputBox").value = retrievedBoxObject;
+        // Make other toggles disabled when edit3 is selected - Devin
+        for (let i of toggles) {
+          switch (i.checked) {
+            case (false):
+              i.disabled = true;
+          }
+          }
+          break;
     }
   });
 }
@@ -67,11 +88,6 @@ function closeEdit() {
     i.disabled = false;
   }
   saveTextBox();
-  
-  // make all toggles visible when closing menu - Chris and Matt
-  document.getElementById("edit1").style.visibility = "visible";
-  document.getElementById("edit2").style.visibility = "visible";
-  document.getElementById("edit3").style.visibility = "visible";
 }
 
 /**
