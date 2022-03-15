@@ -91,7 +91,7 @@ function clearLocalCopy() {
     default:
       $("#textInputBox").val("");
       saveTextBox();
-      close();
+      closeEdit();
   }
 }
 
