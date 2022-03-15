@@ -72,10 +72,26 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* Devin's Edits */
+
+/* Disabled slider */
+input:disabled + .slider {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
 /* Table Padding */
 th,
 td {
   padding-bottom: 5px;
   padding-right: 5px;
-  text-align: center;
+}
+
+/* body {
+  background-color: #053b06;
+} */
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }

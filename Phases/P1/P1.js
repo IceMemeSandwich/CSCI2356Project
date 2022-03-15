@@ -3,17 +3,28 @@ var activeBox = 0;
 var capsPressed = false;
 
 function setup() {
+  $("#test").css("display", "none"); 
   // toggle enables offcanvas menu
   // edit switch 1
   $("#edit1").on("change", function () {
+    $("#test").css("display", "");
+    var isChecked = $("#edit1").is(':checked');
+    console.log(document.getElementById("edit1"), isChecked);
     document.getElementById("editarea").style.display = "block";
     activeBox = 1;
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
     document.getElementById("textInputBox").value = retrievedBoxObject;
 
-    // make other edit toggles hidden when select edit1 - Chris and Matt
-    document.getElementById("edit2").style.visibility = "hidden";
-    document.getElementById("edit3").style.visibility = "hidden";
+    // // make other edit toggles hidden when select edit1 - Chris and Matt
+    // document.getElementById("edit2").disabled = true;
+    // document.getElementById("edit3").style.visibility = "hidden";
+    var toggles = document.querySelectorAll(".switch input");
+    for (let i of toggles) {
+      switch (i.checked) {
+        case (false):
+          i.disabled = true;
+      }
+    }
   });
 
   // edit switch 2
@@ -53,12 +64,12 @@ function setup() {
 function closeEdit() {
   var keyboardMenu = document.getElementById('keyboardMenu');
   var keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
+  keyboardMenuBS.hide();
   // every switch
   var toggles = document.querySelectorAll(".switch input");
-
-  keyboardMenuBS.hide();
   for (let i of toggles) {
     i.checked = false;
+    i.disabled = false;
   }
   saveTextBox();
   
@@ -151,7 +162,4 @@ function addChar(selection) {
           break;
       }
   } 
-
-
-
 }
