@@ -11,10 +11,9 @@ function setup() {
     switch (event.target.checked) {
       case false:
         closeEdit();
-        editArea.style.display = "none";
         break;
       case true:
-        editArea.style.display = "block";
+        editArea.style.display = 'table-cell';
         activeBox = 1;
         var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
         document.getElementById("textInputBox").value = retrievedBoxObject;
@@ -23,9 +22,9 @@ function setup() {
           switch (i.checked) {
             case (false):
               i.disabled = true;
-        }
-        }
-        break;
+          }
+          }
+          break;
     }
   });
 
@@ -34,10 +33,9 @@ function setup() {
     switch (event.target.checked) {
       case false:
         closeEdit();
-        editArea.style.display = "none";
         break;
       case true:
-        editArea.style.display = "block";
+        editArea.style.display = 'table-cell';
         activeBox = 2;
         var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
         document.getElementById("textInputBox").value = retrievedBoxObject;
@@ -57,10 +55,9 @@ function setup() {
     switch (event.target.checked) {
       case false:
         closeEdit();
-        editArea.style.display = "none";
         break;
       case true:
-        editArea.style.display = "block";
+        editArea.style.display = 'table-cell';
         activeBox = 3;
         var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
         document.getElementById("textInputBox").value = retrievedBoxObject;
@@ -78,6 +75,7 @@ function setup() {
 
 
 function closeEdit() {
+  document.getElementById("editArea").style.display = "none";
   var keyboardMenu = document.getElementById('keyboardMenu');
   var keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
   keyboardMenuBS.hide();
