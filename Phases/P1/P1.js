@@ -1,12 +1,8 @@
+
 var activeBox = 0;
 var capsPressed = false;
 
 function setup() {
-  let keyboardMenu = document.getElementById('keyboardMenu');
-  let keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
-  // every switch
-  let toggles = document.querySelectorAll(".switch input");
-
   // toggle enables offcanvas menu
   // edit switch 1
   $("#edit1").on("change", function () {
@@ -46,21 +42,32 @@ function setup() {
 
   // switches ALL toggles when keyboardMenu is closed
   // For now, I dont see a reason for any to be "on" when menu closed - D
-  keyboardMenu.addEventListener('hide.bs.offcanvas', function () {
-    for (let i of toggles) {
-      i.checked = false;
-    }
-    saveTextBox();
+  // keyboardMenu.addEventListener('hide.bs.offcanvas', function () {
     
-    // make all toggles visible when closing menu - Chris and Matt
-    document.getElementById("edit1").style.visibility = "visible";
-    document.getElementById("edit2").style.visibility = "visible";
-    document.getElementById("edit3").style.visibility = "visible";
-  });
+  // });
 
   
 }
 
+
+function closeEdit() {
+  console.log("Hello");
+  const keyboardMenu = document.getElementById('keyboardMenu');
+  const keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
+  // every switch
+  const toggles = document.querySelectorAll(".switch input");
+
+  keyboardMenuBS.hide();
+  for (let i of toggles) {
+    i.checked = false;
+  }
+  saveTextBox();
+  
+  // make all toggles visible when closing menu - Chris and Matt
+  document.getElementById("edit1").style.visibility = "visible";
+  document.getElementById("edit2").style.visibility = "visible";
+  document.getElementById("edit3").style.visibility = "visible";
+}
 
 /**
  * Function to save the values of the text boxes into individual objects stored in local storage
@@ -85,6 +92,7 @@ function clearLocalCopy() {
     default:
       $("#textInputBox").val("");
       saveTextBox();
+      close();
   }
 }
 
