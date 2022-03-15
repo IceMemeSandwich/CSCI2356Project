@@ -29,7 +29,7 @@
   <body onload="setup()">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-dark" style="background-color: #0dab76;">
+    <nav class="navbar navbar-dark" style="background-color: #C70039;">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           The Best Webpage in The Universe!
@@ -52,8 +52,8 @@
       <!-- By Chris Churchill and Matt Audas-->
       
     <div>
-    <table class="center">
-      <tr style="color:blue;">
+    <table id="bigBoy">
+      <tr style="color:white;">
         <td>Blog Name</td>
         <td>Edit</td>
         <td>Publish</td>
@@ -119,7 +119,7 @@
             </label>
           </td>
       </tr>
-      <tr>
+      <tr class="center">
         <td colspan="5" id="editArea" style="display:none;">
           <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
           <button type="button" class="btn btn-primary" id="saveBtnTop" style="vertical-align: middle;" onclick="saveTextBox()">Save</button>
@@ -140,7 +140,11 @@
           <!-- Closes menu (for now) -->
           <button type="button" class="btn btn-secondary" id="cancelBtnBottom" onclick="closeEdit()">Close</button>
           <button type="button" class="btn btn-danger" id="clearBtnBottom" onclick="clearLocalCopy()">Clear</button>
-        </div></td>
+          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
+            <i class="bi bi-keyboard"></i>
+          </button>
+        </div>
+      </td>
       </tr>
     </table>
 

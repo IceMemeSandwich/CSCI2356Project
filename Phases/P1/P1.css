@@ -85,13 +85,26 @@ th,
 td {
   padding-bottom: 5px;
   padding-right: 5px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 /* body {
   background-color: #053b06;
 } */
 
+table#bigBoy {
+  width: 90%;
+  margin-left: 5%;
+  background-color: #a4002d;
+  border-radius: 24px;
+}
+
 .center {
   margin-left: auto;
   margin-right: auto;
+}
+
+body {
+  background-color: #550013;
 }
