@@ -51,11 +51,10 @@ function setup() {
 
 
 function closeEdit() {
-  console.log("Hello");
-  const keyboardMenu = document.getElementById('keyboardMenu');
-  const keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
+  var keyboardMenu = document.getElementById('keyboardMenu');
+  var keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
   // every switch
-  const toggles = document.querySelectorAll(".switch input");
+  var toggles = document.querySelectorAll(".switch input");
 
   keyboardMenuBS.hide();
   for (let i of toggles) {
