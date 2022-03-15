@@ -3,21 +3,14 @@ var activeBox = 0;
 var capsPressed = false;
 
 function setup() {
-  $("#test").css("display", "none"); 
-  // toggle enables offcanvas menu
   // edit switch 1
   $("#edit1").on("change", function () {
-    $("#test").css("display", "");
-    var isChecked = $("#edit1").is(':checked');
-    console.log(document.getElementById("edit1"), isChecked);
     document.getElementById("editarea").style.display = "block";
     activeBox = 1;
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
     document.getElementById("textInputBox").value = retrievedBoxObject;
 
-    // // make other edit toggles hidden when select edit1 - Chris and Matt
-    // document.getElementById("edit2").disabled = true;
-    // document.getElementById("edit3").style.visibility = "hidden";
+    // Make other toggles disabled when edit1 is selected - Devin
     var toggles = document.querySelectorAll(".switch input");
     for (let i of toggles) {
       switch (i.checked) {
@@ -34,9 +27,14 @@ function setup() {
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
     document.getElementById("textInputBox").value = retrievedBoxObject;
 
-    // make other edit toggles hidden when select edit2 - Chris and Matt
-    document.getElementById("edit1").style.visibility = "hidden";
-    document.getElementById("edit3").style.visibility = "hidden";
+    // Make other toggles disabled when edit1 is selected - Devin
+    var toggles = document.querySelectorAll(".switch input");
+    for (let i of toggles) {
+      switch (i.checked) {
+        case (false):
+          i.disabled = true;
+      }
+    }
   });
 
   // edit switch 3
@@ -46,18 +44,15 @@ function setup() {
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
     document.getElementById("textInputBox").value = retrievedBoxObject;
 
-    // make other edit toggles hidden when select edit3 - Chris and Matt
-    document.getElementById("edit1").style.visibility = "hidden";
-    document.getElementById("edit2").style.visibility = "hidden";
+    // Make other toggles disabled when edit1 is selected - Devin
+    var toggles = document.querySelectorAll(".switch input");
+    for (let i of toggles) {
+      switch (i.checked) {
+        case (false):
+          i.disabled = true;
+      }
+    }
   });
-
-  // switches ALL toggles when keyboardMenu is closed
-  // For now, I dont see a reason for any to be "on" when menu closed - D
-  // keyboardMenu.addEventListener('hide.bs.offcanvas', function () {
-    
-  // });
-
-  
 }
 
 
