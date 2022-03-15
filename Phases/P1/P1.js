@@ -10,7 +10,7 @@ function setup() {
   // toggle enables offcanvas menu
   // edit switch 1
   $("#edit1").on("change", function () {
-    keyboardMenuBS.toggle();
+    document.getElementById("editarea").style.display = "block";
     activeBox = 1;
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
     document.getElementById("textInputBox").value = retrievedBoxObject;
@@ -22,7 +22,7 @@ function setup() {
 
   // edit switch 2
   $("#edit2").on("change", function () {
-    keyboardMenuBS.toggle();
+    document.getElementById("editarea").style.display = "block";
     activeBox = 2;
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
     document.getElementById("textInputBox").value = retrievedBoxObject;
@@ -34,7 +34,7 @@ function setup() {
 
   // edit switch 3
   $("#edit3").on("change", function () {
-    keyboardMenuBS.toggle();
+    document.getElementById("editarea").style.display = "block";
     activeBox = 3;
     var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
     document.getElementById("textInputBox").value = retrievedBoxObject;
