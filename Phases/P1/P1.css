@@ -108,3 +108,11 @@ table#bigBoy {
 body {
   background-color: rgb(31, 31, 31);
 }
+
+.keyboardButton {
+  transition: transform 0.2s;
+}
+
+.keyboardButton:hover {
+  transform: scale(2);
+}
