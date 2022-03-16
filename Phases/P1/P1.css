@@ -96,7 +96,7 @@ td {
 table#bigBoy {
   width: 90%;
   margin-left: 5%;
-  background-color: #a4002d;
+  background-color: rgb(92, 92, 92);
   border-radius: 24px;
 }
 
@@ -106,5 +106,5 @@ table#bigBoy {
 }
 
 body {
-  background-color: #550013;
+  background-color: rgb(31, 31, 31);
 }
