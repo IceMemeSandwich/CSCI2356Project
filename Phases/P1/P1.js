@@ -1,66 +1,92 @@
+
 var activeBox = 0;
 var capsPressed = false;
 
 function setup() {
-  let keyboardMenu = document.getElementById('keyboardMenu');
-  let keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
-  // every switch
   let toggles = document.querySelectorAll(".switch input");
+  let editArea = document.getElementById("editArea");
 
-  // toggle enables offcanvas menu
   // edit switch 1
-  $("#edit1").on("change", function () {
-    keyboardMenuBS.toggle();
-    activeBox = 1;
-    var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
-    document.getElementById("textInputBox").value = retrievedBoxObject;
-
-    // make other edit toggles hidden when select edit1 - Chris and Matt
-    document.getElementById("edit2").style.visibility = "hidden";
-    document.getElementById("edit3").style.visibility = "hidden";
+  $("#edit1").on("change", function (event) {
+    switch (event.target.checked) {
+      case false:
+        closeEdit();
+        break;
+      case true:
+        editArea.style.display = 'table-cell';
+        activeBox = 1;
+        var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
+        document.getElementById("textInputBox").value = retrievedBoxObject;
+        // Make other toggles disabled when edit1 is selected - Devin
+        for (let i of toggles) {
+          switch (i.checked) {
+            case (false):
+              i.disabled = true;
+          }
+          }
+          break;
+    }
   });
 
   // edit switch 2
-  $("#edit2").on("change", function () {
-    keyboardMenuBS.toggle();
-    activeBox = 2;
-    var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
-    document.getElementById("textInputBox").value = retrievedBoxObject;
-
-    // make other edit toggles hidden when select edit2 - Chris and Matt
-    document.getElementById("edit1").style.visibility = "hidden";
-    document.getElementById("edit3").style.visibility = "hidden";
+  $("#edit2").on("change", function (event) {
+    switch (event.target.checked) {
+      case false:
+        closeEdit();
+        break;
+      case true:
+        editArea.style.display = 'table-cell';
+        activeBox = 2;
+        var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
+        document.getElementById("textInputBox").value = retrievedBoxObject;
+        // Make other toggles disabled when edit2 is selected - Devin
+        for (let i of toggles) {
+          switch (i.checked) {
+            case (false):
+              i.disabled = true;
+          }
+          }
+          break;
+    }
   });
 
   // edit switch 3
-  $("#edit3").on("change", function () {
-    keyboardMenuBS.toggle();
-    activeBox = 3;
-    var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
-    document.getElementById("textInputBox").value = retrievedBoxObject;
-
-    // make other edit toggles hidden when select edit3 - Chris and Matt
-    document.getElementById("edit1").style.visibility = "hidden";
-    document.getElementById("edit2").style.visibility = "hidden";
-  });
-
-  // switches ALL toggles when keyboardMenu is closed
-  // For now, I dont see a reason for any to be "on" when menu closed - D
-  keyboardMenu.addEventListener('hide.bs.offcanvas', function () {
-    for (let i of toggles) {
-      i.checked = false;
+  $("#edit3").on("change", function (event) {
+    switch (event.target.checked) {
+      case false:
+        closeEdit();
+        break;
+      case true:
+        editArea.style.display = 'table-cell';
+        activeBox = 3;
+        var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
+        document.getElementById("textInputBox").value = retrievedBoxObject;
+        // Make other toggles disabled when edit3 is selected - Devin
+        for (let i of toggles) {
+          switch (i.checked) {
+            case (false):
+              i.disabled = true;
+          }
+          }
+          break;
     }
-    saveTextBox();
-    
-    // make all toggles visible when closing menu - Chris and Matt
-    document.getElementById("edit1").style.visibility = "visible";
-    document.getElementById("edit2").style.visibility = "visible";
-    document.getElementById("edit3").style.visibility = "visible";
   });
-
-  
 }
 
+
+function closeEdit() {
+  document.getElementById("editArea").style.display = "none";
+  var keyboardMenu = document.getElementById('keyboardMenu');
+  var keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
+  keyboardMenuBS.hide();
+  // every switch
+  var toggles = document.querySelectorAll(".switch input");
+  for (let i of toggles) {
+    i.checked = false;
+    i.disabled = false;
+  }
+  saveTextBox();
+}
 
 /**
  * Function to save the values of the text boxes into individual objects stored in local storage
@@ -85,6 +111,7 @@ function clearLocalCopy() {
     default:
       $("#textInputBox").val("");
       saveTextBox();
+      closeEdit();
   }
 }
 
@@ -144,7 +171,4 @@ function addChar(selection) {
           break;
       }
   } 
-
-
-
 }
