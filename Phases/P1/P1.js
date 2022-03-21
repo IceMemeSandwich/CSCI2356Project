@@ -78,6 +78,7 @@ function closeEdit() {
   document.getElementById("editArea").style.display = "none";
   var keyboardMenu = document.getElementById('keyboardMenu');
   var keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
+  $('#keyboardMenu').toggleClass('show');
   keyboardMenuBS.hide();
   // every switch
   var toggles = document.querySelectorAll(".switch input");
