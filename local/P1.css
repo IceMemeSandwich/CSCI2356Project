@@ -113,6 +113,16 @@ body {
   transition: transform 0.2s;
 }
 
+.keyboardNormalBtn {
+  height: 50px;
+  width: 50px;
+}
+
+.keyboardWideBtn {
+  height: 50px;
+  width: 75px;
+}
+
 .keyboardButton:hover {
   transform: scale(2);
 }
