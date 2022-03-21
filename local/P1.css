@@ -1,7 +1,7 @@
 /*  By Chris Churchill and Matt Audas */
 
 .large {
-  width: 70px;
+  width: 150px;
 }
 
 .normal {
@@ -114,13 +114,13 @@ body {
 }
 
 .keyboardNormalBtn {
-  height: 50px;
+  height: 60px;
   width: 50px;
 }
 
 .keyboardWideBtn {
-  height: 50px;
-  width: 75px;
+  height: 60px;
+  width: 119px;
 }
 
 .keyboardButton:hover {
