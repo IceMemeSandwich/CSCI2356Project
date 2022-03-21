@@ -9,7 +9,7 @@
 <html>
   <head>
    
-    <title>Phase 1</title>
+    <title>CSCI2356 Projet</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,14 +54,14 @@
     <div style="padding-top: 20px;">
     <table id="bigBoy">
       <tr style="color:white;">
-        <td>Blog Name</td>
-        <td>Edit</td>
-        <td>Publish</td>
+        <td style="font-size: 20px">Blog Name</td>
+        <td style="font-size: 20px">Edit</td>
+        <td style="font-size: 20px">Publish</td>
       </tr>
       <!-- first blog row  -->
       <tr>
-          <td>
-            <input type="text" id="blog1" style="width:120px" placeholder="Type Name">      
+          <td style="font-size: 20px">
+            <p style="color:white" id="blog1">1</p>      
           </td>
 
           <td>
@@ -80,8 +80,8 @@
       </tr>
       <!-- second blog row -->
       <tr>
-        <td>
-          <input type="text" id="blog2" style="width:120px" placeholder="Type Name">      
+        <td style="font-size: 20x">
+          <p style="color:white" id="blog2">2</p>     
         </td>
 
         <td>
@@ -101,8 +101,8 @@
       <!-- third blog row -->
       <tr>
         <tr>
-          <td>
-            <input type="text" id="blog3" style="width:120px" placeholder="Type Name">      
+          <td style="font-size: 20px">
+            <p style="color:white" id="blog3">3</p>      
           </td>
 
           <td>
@@ -122,11 +122,11 @@
       <tr class="center">
         <td colspan="5" id="editArea" style="display:none;">
           <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
-          <button type="button" class="btn btn-primary" id="saveBtnTop" style="vertical-align: middle;" onclick="saveTextBox()">Save</button>
+          <button type="button" class="btn btn-primary" id="saveBtnTop" style="font-size:2em" style ="vertical-align: middle;" onclick="saveTextBox()">Save</button>
           <!-- Closes menu (for now) -->
-          <button type="button" class="btn btn-secondary" id="cancelBtnTop" onclick="closeEdit()">Close</button>
-          <button type="button" class="btn btn-danger" id="clearBtnTop" onclick="clearLocalCopy()">Clear</button>
-          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
+          <button type="button" class="btn btn-secondary" id="cancelBtnTop" style="font-size:2em" onclick="closeEdit()">Close</button>
+          <button type="button" class="btn btn-danger" id="clearBtnTop" style="font-size:2em" onclick="clearLocalCopy()">Clear</button>
+          <button type="button" class="btn btn-primary"  style="font-size:2em" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
             <i class="bi bi-keyboard"></i>
           </button>
         </div>
@@ -135,14 +135,14 @@
           <textarea id="textInputBox"  rows="8" cols="60" placeholder="Put Text Here!"></textarea>
         </div>
 
+       
         <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
-          <button type="button" class="btn btn-primary" id="saveBtnBottom" onclick="saveTextBox()">Save</button>
-          <!-- Closes menu (for now) -->
-          <button type="button" class="btn btn-secondary" id="cancelBtnBottom" onclick="closeEdit()">Close</button>
-          <button type="button" class="btn btn-danger" id="clearBtnBottom" onclick="clearLocalCopy()">Clear</button>
-          <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
+          <button type="button" class="btn btn-primary" id="saveBtnBottom" style="font-size:2em" onclick="saveTextBox()">Save</button>
+          <button type="button" class="btn btn-secondary" id="cancelBtnBottom" style="font-size:2em" onclick="closeEdit()">Close</button>
+          <button type="button" class="btn btn-danger" id="clearBtnBottom" style="font-size:2em" onclick="clearLocalCopy()">Clear</button>
+          <button type="button" class="btn btn-primary" data-toggle="button" style="font-size:2em "aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
             <i class="bi bi-keyboard"></i>
-          </button>
+          </button> 
         </div>
       </td>
       </tr>
@@ -158,67 +158,67 @@
       <table style="text-align: center">
         <tr>
           <td> <!-- keyboard -->
-            <div class="mb-1">
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="oneBtn" onclick="addChar('oneBtn')">1</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="twoBtn" onclick="addChar('twoBtn')">2</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="threeBtn" onclick="addChar('threeBtn')">3</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="fourBtn" onclick="addChar('fourBtn')">4</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="fiveBtn" onclick="addChar('fiveBtn')">5</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="sixBtn" onclick="addChar('sixBtn')">6</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="sevenBtn" onclick="addChar('sevenBtn')">7</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="eightBtn" onclick="addChar('eightBtn')">8</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="nineBtn" onclick="addChar('nineBtn')">9</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="zeroBtn" onclick="addChar('zeroBtn')">0</a>
-              <a data-role="button" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="capsBtn" onclick="toCaps()">
+            <div style="margin-bottom: 15px">
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="oneBtn" onclick="addChar('oneBtn')">1</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="twoBtn" onclick="addChar('twoBtn')">2</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="threeBtn" onclick="addChar('threeBtn')">3</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="fourBtn" onclick="addChar('fourBtn')">4</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="fiveBtn" onclick="addChar('fiveBtn')">5</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="sixBtn" onclick="addChar('sixBtn')">6</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="sevenBtn" onclick="addChar('sevenBtn')">7</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="eightBtn" onclick="addChar('eightBtn')">8</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="nineBtn" onclick="addChar('nineBtn')">9</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="zeroBtn" onclick="addChar('zeroBtn')">0</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="capsBtn" onclick="toCaps()">
               <i class="bi-arrow-up"></i>
             </a>
               
               
             </div>
           
-            <div class="mb-1">
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="qBtn" onclick="addChar('qBtn')">q</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="wBtn" onclick="addChar('wBtn')">w</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="eBtn" onclick="addChar('eBtn')">e</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="rBtn" onclick="addChar('rBtn')">r</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="tBtn" onclick="addChar('tBtn')">t</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="yBtn" onclick="addChar('yBtn')">y</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="uBtn" onclick="addChar('uBtn')">u</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="iBtn" onclick="addChar('iBtn')">i</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="oBtn" onclick="addChar('oBtn')">o</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="pBtn" onclick="addChar('pBtn')">p</a>
-              <a data-role="button" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="backBtn" onclick="addChar('bksp')">
+            <div style="margin-bottom: 15px">
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="qBtn" onclick="addChar('qBtn')">q</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="wBtn" onclick="addChar('wBtn')">w</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="eBtn" onclick="addChar('eBtn')">e</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="rBtn" onclick="addChar('rBtn')">r</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="tBtn" onclick="addChar('tBtn')">t</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="yBtn" onclick="addChar('yBtn')">y</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="uBtn" onclick="addChar('uBtn')">u</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="iBtn" onclick="addChar('iBtn')">i</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="oBtn" onclick="addChar('oBtn')">o</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="pBtn" onclick="addChar('pBtn')">p</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="backBtn" onclick="addChar('bksp')">
               <i class="bi-arrow-left"></i>
               </a>
             </div>
             
-            <div class="mb-1">
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="aBtn" onclick="addChar('aBtn')">a</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="sBtn" onclick="addChar('sBtn')">s</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="dBtn" onclick="addChar('dBtn')">d</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="fBtn" onclick="addChar('fBtn')">f</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="gBtn" onclick="addChar('gBtn')">g</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="hBtn" onclick="addChar('hBtn')">h</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="jBtn" onclick="addChar('jBtn')">j</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="kBtn" onclick="addChar('kBtn')">k</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="lBtn" onclick="addChar('lBtn')">l</a>
-              <a data-role="button" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="enterBtn" onclick="addChar('enter')">Enter</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="quoteBtn" onclick='addChar("quoteBtn")'>'</a>
+            <div style="margin-bottom: 15px">
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="aBtn" onclick="addChar('aBtn')">a</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="sBtn" onclick="addChar('sBtn')">s</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="dBtn" onclick="addChar('dBtn')">d</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="fBtn" onclick="addChar('fBtn')">f</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="gBtn" onclick="addChar('gBtn')">g</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="hBtn" onclick="addChar('hBtn')">h</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="jBtn" onclick="addChar('jBtn')">j</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="kBtn" onclick="addChar('kBtn')">k</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="lBtn" onclick="addChar('lBtn')">l</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="enterBtn" onclick="addChar('enter')">Enter</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="quoteBtn" onclick='addChar("quoteBtn")'>'</a>
             </div>
             
-            <div class="mb-1">
+            <div style="margin-bottom: 15px">
               
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="zBtn" onclick="addChar('zBtn')">z</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="xBtn" onclick="addChar('xBtn')">x</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="cBtn" onclick="addChar('cBtn')">c</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="vBtn" onclick="addChar('vBtn')">v</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="bBtn" onclick="addChar('bBtn')">b</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="nBtn" onclick="addChar('nBtn')">n</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="mBtn" onclick="addChar('mBtn')">m</a>
-              <a data-role="button" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="spaceBtn" onclick="addChar('space')">Space</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="dotBtn" onclick="addChar('dotBtn')">.</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="qmarkBtn" onclick="addChar('qmarkBtn')">?</a>
-              <a data-role="button" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="commaBtn" onclick="addChar('commaBtn')">,</a>
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="zBtn" onclick="addChar('zBtn')">z</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="xBtn" onclick="addChar('xBtn')">x</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="cBtn" onclick="addChar('cBtn')">c</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="vBtn" onclick="addChar('vBtn')">v</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="bBtn" onclick="addChar('bBtn')">b</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="nBtn" onclick="addChar('nBtn')">n</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="mBtn" onclick="addChar('mBtn')">m</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="spaceBtn" onclick="addChar('space')">Space</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="dotBtn" onclick="addChar('dotBtn')">.</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="qmarkBtn" onclick="addChar('qmarkBtn')">?</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="commaBtn" onclick="addChar('commaBtn')">,</a>
               
             </div>
 
