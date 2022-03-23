@@ -54,6 +54,9 @@ function setup() {
   $("#edit3").on("change", function (event) {
     switch (event.target.checked) {
       case false:
+        var keyboardMenu = document.getElementById('keyboardMenu');
+        var keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
+        keyboardMenuBS.hide();
         closeEdit();
         break;
       case true:
@@ -78,7 +81,7 @@ function closeEdit() {
   document.getElementById("editArea").style.display = "none";
   var keyboardMenu = document.getElementById('keyboardMenu');
   var keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
-  $('#keyboardMenu').toggleClass('show');
+  keyboardMenu.setAttribute("style", "background-color: rgb(92, 92, 92); visibility: hidden;")
   keyboardMenuBS.hide();
   // every switch
   var toggles = document.querySelectorAll(".switch input");
