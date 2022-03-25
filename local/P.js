@@ -53,7 +53,19 @@ function setup() {
     }
   });
 
-// edit switches
+// publish switches
+
+  $("#publish1").on("change", function (event) {
+    publish(1, event.target.checked);
+  });
+
+  $("#publish2").on("change", function (event) {
+    publish(2, event.target.checked);
+  });
+
+  $("#publish3").on("change", function (event) {
+    publish(3, event.target.checked);
+  });
 
 }
 
@@ -69,9 +81,17 @@ function setupBox(box) {
   // Make other toggles disabled when edit1 is selected - Devin
   for (let i of toggles) {
         i.disabled = true;
-        console.log(i);
     }
-    // Quick fix
+}
+
+function publish(box, publish) {
+  let post = {
+    "id": box.toString(),
+    "title": box.toString(), // temp
+    "post": JSON.parse(window.localStorage.getItem('box' + box.toString())),
+    "publish": publish
+  };
+  $.post(SERVER_URL + "/send", post, callback1).fail(errorCallback1);
 }
 
 function closeEdit() {
@@ -117,9 +137,39 @@ function clearLocalCopy() {
   }
 }
 
+// talking to server functions - Devin R.
+
+function send(id, name, post) {
+  // Sends the text of a textbox and its number as a JSON to the server for saving
+  let text = {
+    "id": id,
+    "name": name,
+    "post": post
+  };
+  $.post(SERVER_URL + "/send", text, callback1).fail(errorCallback1);
+}
+
+function receive(posts) {
+  // all we need is three post for now, but sometime later write someway to get a total amount
+  for (let i in posts) {
+    if (posts[i]["posted"] == true) {
+      // closes the toggle by clicking it (i have no better ideas that work)
+      $("#publish" + i).trigger("click");
+    };
+    }
+
+}
+
+function callback1(returnedData) {
+  console.log(returnedData);
+}
+
+function errorCallback1(err) {
+console.log(err.responseText);
+}
+
+
 // JavaScript for Keyboard
-
-
 
 // Devin
 function toCaps() {
@@ -140,38 +190,6 @@ function toCaps() {
       }
       break
   }
-}
-
-// talking to server functions - Devin R.
-
-function send(id, name, post) {
-  // Sends the text of a textbox and its number as a JSON to the server for saving
-  let text = {
-    "id": id,
-    "name": name,
-    "post": post
-  };
-  $.post(SERVER_URL + "/send", text, callback1).fail(errorCallback1);
-  console.log(text);
-}
-
-function receive(posts) {
-  // all we need is three post for now, but sometime later write someway to get a total amount
-  for (let i in posts) {
-    if (posts[i]["posted"] == true) {
-      // closes the toggle by clicking it (i have no better ideas that work)
-      $("#publish" + i).trigger("click");
-    };
-    }
-
-}
-
-function callback1(returnedData) {
-  console.log(returnedData);
-}
-
-function errorCallback1(err) {
-console.log(err.responseText);
 }
 
 // Writing anything after this function will not work (for what reason i have no clue)
