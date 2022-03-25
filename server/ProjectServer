@@ -1,20 +1,15 @@
 /**
- * Connor MacNeil
+ * Connor MacNeil, Devin Robar
  * A00445228
  * 
- * This file represents the server which is meant to be ran in parallel to the other Project files
- * in a non-volatile manner (text boxes are saved on page reset but not on server reset)
- * Note: some of this code is copied from the ExpressServer.js code under the 10-nodejs module on brightspace
  */
+
  const express = require("express"); // start express application
  const server = express(); // define top level function
  const port = 3049;
  
- let textBoxes = {
-     "first": "",
-     "second": "",
-     "third": ""
- };
+// for now we only need 3 blogs
+const postOne = {title:"", post:""};
  
  server.use(express.json()); // implement JSON recognition
  server.use(express.urlencoded({ extended: true })); // implement incoming name:value pairs to be any type
@@ -27,32 +22,4 @@
  };
  server.use(allowCrossDomain); // implement allowable domain characteristics
  
- /**
-  * This function gets the stored input boxes once the page loads
-  */
- server.get("/myGet", function (req, res) {
-     console.log(req.url);
-     return res.status(200).send(textBoxes);
- });
- 
- /**
-  * This function sets the stored input boxes
-  */
- server.post("/myPost", function (req, res) {
-     console.log("Text Box #" + req.body.number + ", Contents: " + req.body.value);
-     if (req.body.number == 1) {
-         textBoxes.first = req.body.value;
-     } else if (req.body.number == 2) {
-         textBoxes.second = req.body.value;
-     } else if (req.body.number == 3) {
-         textBoxes.third = req.body.value;
-     }
-     return res.status(200).send(req);
- });
- 
- /**
-  * This function listens on a specified port and logs the port number in the server console (3049 in this case)
-  */
- server.listen(port, function () {
-     console.log("Port: " + port);
- })
+
