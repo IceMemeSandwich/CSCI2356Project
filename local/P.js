@@ -87,7 +87,7 @@ function closeEdit() {
   }
   saveTextBox();
   // closes the toggle by clicking it (i have no better ideas that work)
-  $("#edit" + activeBox.toString()).trigger("click"); // turn it on
+  $("#edit" + activeBox.toString()).trigger("click");
 }
 
 /**
@@ -158,10 +158,9 @@ function send(id, name, post) {
 function receive(posts) {
   // all we need is three post for now, but sometime later write someway to get a total amount
   for (let i in posts) {
-    console.log(i);
     if (posts[i]["posted"] == true) {
-      console.log(posts[i]["post"]);
-      // check box
+      // closes the toggle by clicking it (i have no better ideas that work)
+      $("#publish" + i).trigger("click");
     };
     }
 
