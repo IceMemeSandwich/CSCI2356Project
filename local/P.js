@@ -19,17 +19,9 @@ function setup() {
         event.target.checked = false;
         break;
       case true:
-        editArea.style.display = 'table-cell';
-        activeBox = 1;
-        var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
-        document.getElementById("textInputBox").value = retrievedBoxObject;
-        // Make other toggles disabled when edit1 is selected - Devin
-        for (let i of toggles) {
-              i.disabled = true;
-          }
-          // Quick fix
-          event.target.disabled = false;
-          break;
+        setupBox(1);
+        event.target.disabled = false;
+        break;
     }
   });
 
@@ -41,17 +33,9 @@ function setup() {
         event.target.checked = false;
         break;
       case true:
-        editArea.style.display = 'table-cell';
-        activeBox = 2;
-        var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
-        document.getElementById("textInputBox").value = retrievedBoxObject;
-        // Make other toggles disabled when edit2 is selected - Devin
-        for (let i of toggles) {
-              i.disabled = true;
-          }
-          // Quick fix
-          event.target.disabled = false;
-          break;
+        setupBox(2);
+        event.target.disabled = false;
+        break;
     }
   });
 
@@ -63,21 +47,32 @@ function setup() {
         event.target.checked = false;
         break;
       case true:
-        editArea.style.display = 'table-cell';
-        activeBox = 3;
-        var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
-        document.getElementById("textInputBox").value = retrievedBoxObject;
-        // Make other toggles disabled when edit3 is selected - Devin
-        for (let i of toggles) {
-              i.disabled = true;
-          }
-          // Quick fix
-          event.target.disabled = false;
-          break;
+        setupBox(3);
+        event.target.disabled = false;
+        break;
     }
   });
+
+// edit switches
+
 }
 
+// Cleaning time
+function setupBox(box) {
+  let toggles = document.querySelectorAll(".switch input");
+  let editArea = document.getElementById("editArea");
+
+  editArea.style.display = 'table-cell';
+  activeBox = box;
+  var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box' + box.toString()));
+  document.getElementById("textInputBox").value = retrievedBoxObject;
+  // Make other toggles disabled when edit1 is selected - Devin
+  for (let i of toggles) {
+        i.disabled = true;
+        console.log(i);
+    }
+    // Quick fix
+}
 
 function closeEdit() {
   document.getElementById("editArea").style.display = "none";
@@ -91,6 +86,8 @@ function closeEdit() {
     i.disabled = false;
   }
   saveTextBox();
+  // closes the toggle by clicking it (i have no better ideas that work)
+  $("#edit" + activeBox.toString()).trigger("click"); // turn it on
 }
 
 /**
