@@ -9,19 +9,19 @@
  const port = 3111;
  
 // for now we only need 3 blogs
-const posts = {
-    "1":{
-       "name":"",
+var posts = {
+    '1':{
+       "title":"",
        "post":"",
        "posted": false
     },
-    "2":{
-       "name":"",
+    '2':{
+       "title":"",
        "post":"",
        "posted": false
     },
-    "3":{
-       "name":"",
+    '3':{
+       "title":"",
        "post":"",
        "posted": false
     }
@@ -51,7 +51,19 @@ app.get("/receive", function (req, res) {
 //     "post":""
 //  }
 app.post("/send", function (req, res) {
-    console.log("Id #" + req.body.id + ", Title: " + req.body.title, + "\nPost: " + req.body.post);
+    console.log("Id #" + req.body.id + ", Title: " + req.body.title + ", Post: " + req.body.post);
+    switch (req.body.publish) {
+      case false:
+         posts['1']["posted"] = req.body.publish;
+         break;
+      case true:
+         posts.req.body.id.title = req.body.title;
+         posts[req.body.id]["post"] = req.body.post;
+         posts[req.body.id]["posted"] = req.body.publish;
+         console.log("posts");
+         break;
+    }
+    console.log(posts);
 });
 
 // makes this program run on the port that was set at the top of the script
