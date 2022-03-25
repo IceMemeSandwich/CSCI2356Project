@@ -16,6 +16,7 @@ function setup() {
     switch (event.target.checked) {
       case false:
         closeEdit();
+        event.target.checked = false;
         break;
       case true:
         editArea.style.display = 'table-cell';
@@ -23,14 +24,13 @@ function setup() {
         var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
         document.getElementById("textInputBox").value = retrievedBoxObject;
         // Make other toggles disabled when edit1 is selected - Devin
-    //     for (let i of toggles) {
-    //       switch (i.checked) {
-    //         case (false):
-    //           i.disabled = true;
-    //       }
-    //       }
-    //       break;
-    // }
+        for (let i of toggles) {
+              i.disabled = true;
+          }
+          // Quick fix
+          event.target.disabled = false;
+          break;
+    }
   });
 
   // edit switch 2
@@ -38,6 +38,7 @@ function setup() {
     switch (event.target.checked) {
       case false:
         closeEdit();
+        event.target.checked = false;
         break;
       case true:
         editArea.style.display = 'table-cell';
@@ -45,14 +46,13 @@ function setup() {
         var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
         document.getElementById("textInputBox").value = retrievedBoxObject;
         // Make other toggles disabled when edit2 is selected - Devin
-    //     for (let i of toggles) {
-    //       switch (i.checked) {
-    //         case (false):
-    //           i.disabled = true;
-    //       }
-    //       }
-    //       break;
-    // }
+        for (let i of toggles) {
+              i.disabled = true;
+          }
+          // Quick fix
+          event.target.disabled = false;
+          break;
+    }
   });
 
   // edit switch 3
@@ -60,6 +60,7 @@ function setup() {
     switch (event.target.checked) {
       case false:
         closeEdit();
+        event.target.checked = false;
         break;
       case true:
         editArea.style.display = 'table-cell';
@@ -67,14 +68,13 @@ function setup() {
         var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
         document.getElementById("textInputBox").value = retrievedBoxObject;
         // Make other toggles disabled when edit3 is selected - Devin
-    //     for (let i of toggles) {
-    //       switch (i.checked) {
-    //         case (false):
-    //           i.disabled = true;
-    //       }
-    //       }
-    //       break;
-    // }
+        for (let i of toggles) {
+              i.disabled = true;
+          }
+          // Quick fix
+          event.target.disabled = false;
+          break;
+    }
   });
 }
 
@@ -88,7 +88,6 @@ function closeEdit() {
   // every switch
   var toggles = document.querySelectorAll(".switch input");
   for (let i of toggles) {
-    i.checked = false;
     i.disabled = false;
   }
   saveTextBox();
