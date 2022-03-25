@@ -6,21 +6,24 @@
 
  const express = require("express"); // start express application
  const app = express(); // define top level function
- const port = 3049;
+ const port = 3111;
  
 // for now we only need 3 blogs
 const posts = {
     "1":{
        "name":"",
-       "post":""
+       "post":"",
+       "posted": false
     },
     "2":{
        "name":"",
-       "post":""
+       "post":"",
+       "posted": false
     },
     "3":{
        "name":"",
-       "post":""
+       "post":"",
+       "posted": false
     }
  };
  

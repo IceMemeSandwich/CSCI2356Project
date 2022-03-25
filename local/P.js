@@ -1,8 +1,13 @@
+// CHANGE LATER
+const SERVER_URL = "http://ugdev.cs.smu.ca:3111";
 
 var activeBox = 0;
 var capsPressed = false;
 
 function setup() {
+
+  $.get(SERVER_URL + "/receive", receive).fail(errorCallback1);
+
   let toggles = document.querySelectorAll(".switch input");
   let editArea = document.getElementById("editArea");
 
@@ -18,14 +23,14 @@ function setup() {
         var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box1'));
         document.getElementById("textInputBox").value = retrievedBoxObject;
         // Make other toggles disabled when edit1 is selected - Devin
-        for (let i of toggles) {
-          switch (i.checked) {
-            case (false):
-              i.disabled = true;
-          }
-          }
-          break;
-    }
+    //     for (let i of toggles) {
+    //       switch (i.checked) {
+    //         case (false):
+    //           i.disabled = true;
+    //       }
+    //       }
+    //       break;
+    // }
   });
 
   // edit switch 2
@@ -40,14 +45,14 @@ function setup() {
         var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box2'));
         document.getElementById("textInputBox").value = retrievedBoxObject;
         // Make other toggles disabled when edit2 is selected - Devin
-        for (let i of toggles) {
-          switch (i.checked) {
-            case (false):
-              i.disabled = true;
-          }
-          }
-          break;
-    }
+    //     for (let i of toggles) {
+    //       switch (i.checked) {
+    //         case (false):
+    //           i.disabled = true;
+    //       }
+    //       }
+    //       break;
+    // }
   });
 
   // edit switch 3
@@ -62,14 +67,14 @@ function setup() {
         var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box3'));
         document.getElementById("textInputBox").value = retrievedBoxObject;
         // Make other toggles disabled when edit3 is selected - Devin
-        for (let i of toggles) {
-          switch (i.checked) {
-            case (false):
-              i.disabled = true;
-          }
-          }
-          break;
-    }
+    //     for (let i of toggles) {
+    //       switch (i.checked) {
+    //         case (false):
+    //           i.disabled = true;
+    //       }
+    //       }
+    //       break;
+    // }
   });
 }
 
@@ -139,6 +144,39 @@ function toCaps() {
       }
       break
   }
+}
+
+// talking to server functions - Devin R.
+
+function send(id, name, post) {
+  // Sends the text of a textbox and its number as a JSON to the server for saving
+  let text = {
+    "id": id,
+    "name": name,
+    "post": post
+  };
+  $.post(SERVER_URL + "/send", text, callback1).fail(errorCallback1);
+  console.log(text);
+}
+
+function receive(posts) {
+  // all we need is three post for now, but sometime later write someway to get a total amount
+  for (let i in posts) {
+    console.log(i);
+    if (posts[i]["posted"] == true) {
+      console.log(posts[i]["post"]);
+      // check box
+    };
+    }
+
+}
+
+function callback1(returnedData) {
+  console.log(returnedData);
+}
+
+function errorCallback1(err) {
+console.log(err.responseText);
 }
 
 // Writing anything after this function will not work (for what reason i have no clue)
