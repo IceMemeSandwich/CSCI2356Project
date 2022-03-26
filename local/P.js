@@ -4,6 +4,8 @@ const SERVER_URL = "http://ugdev.cs.smu.ca:3111";
 var activeBox = 0;
 var capsPressed = false;
 
+var onlinePosts = {};
+
 function setup() {
 
   $.get(SERVER_URL + "/receive", receive).fail(errorCallback1);
@@ -82,6 +84,11 @@ function setupBox(box) {
   for (let i of toggles) {
         i.disabled = true;
     }
+  // if post is posted, disable textbox and put the contents of whats online
+  if (onlinePosts[box.toString()]["posted"] == true) {
+    document.getElementById("textInputBox").value = onlinePosts[box.toString()]["post"];
+    document.getElementById("textInputBox").disabled = true;
+  }
 }
 
 function publish(box, publish) {
@@ -92,6 +99,8 @@ function publish(box, publish) {
     "publish": publish
   };
   $.post(SERVER_URL + "/send", post, callback1).fail(errorCallback1);
+  // update local copy of whats online (bad temp solution (do better)) - Devin
+  onlinePosts[box.toString()]["posted"] = publish;
 }
 
 function closeEdit() {
@@ -105,6 +114,8 @@ function closeEdit() {
   for (let i of toggles) {
     i.disabled = false;
   }
+  // in case the text box was disabled
+  document.getElementById("textInputBox").disabled = false;
   saveTextBox();
   // closes the toggle by clicking it (i have no better ideas that work)
   $("#edit" + activeBox.toString()).trigger("click");
@@ -139,23 +150,24 @@ function clearLocalCopy() {
 
 // talking to server functions - Devin R.
 
-function send(id, name, post) {
-  // Sends the text of a textbox and its number as a JSON to the server for saving
-  let text = {
-    "id": id,
-    "name": name,
-    "post": post
-  };
-  $.post(SERVER_URL + "/send", text, callback1).fail(errorCallback1);
-}
+// function send(id, name, post) {
+//   // Sends the text of a textbox and its number as a JSON to the server for saving
+//   let text = {
+//     "id": id,
+//     "name": name,
+//     "post": post
+//   };
+//   $.post(SERVER_URL + "/send", text, callback1).fail(errorCallback1);
+// }
 
 function receive(posts) {
   // all we need is three post for now, but sometime later write someway to get a total amount
+  onlinePosts = posts;
   for (let i in posts) {
     if (posts[i]["posted"] == true) {
       // closes the toggle by clicking it (i have no better ideas that work)
       $("#publish" + i).trigger("click");
-    };
+    }
     }
 
 }

@@ -9,7 +9,7 @@
  const port = 3111;
  
 // for now we only need 3 blogs
-var posts = {
+let posts = {
     '1':{
        "title":"",
        "post":"",
@@ -52,18 +52,18 @@ app.get("/receive", function (req, res) {
 //  }
 app.post("/send", function (req, res) {
     console.log("Id #" + req.body.id + ", Title: " + req.body.title + ", Post: " + req.body.post);
-    switch (req.body.publish) {
+    let publish = (req.body.publish === 'true');
+    switch (publish) {
       case false:
-         posts['1']["posted"] = req.body.publish;
+         posts[req.body.id]["posted"] = publish;
          break;
       case true:
-         posts.req.body.id.title = req.body.title;
+         posts[req.body.id]["title"] = req.body.title;
          posts[req.body.id]["post"] = req.body.post;
-         posts[req.body.id]["posted"] = req.body.publish;
+         posts[req.body.id]["posted"] = publish;
          console.log("posts");
          break;
     }
-    console.log(posts);
 });
 
 // makes this program run on the port that was set at the top of the script
