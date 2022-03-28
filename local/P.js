@@ -160,15 +160,9 @@ function closeEdit() {
 }
 
 function clearLocalCopy() {
-  var clearI = confirm("Do you want to delete your work?");
-  switch (clearI){
-    case false:
-      break;
-    default:
-      $("#textInputBox").val("");
-      saveTextBox();
-      closeEdit();
-  }
+  $("#textInputBox").val("");
+  saveTextBox();
+  closeEdit();
 }
 
 function receive(posts) {
@@ -208,15 +202,22 @@ function errorBox(message, func, param = null) {
   // @ts-ignore
   $('#errorBox').modal("show");
   $("#errorBoxYesBtn").on("click", function () {
-    document.getElementById('errorBox-body').innerHTML = "Are you sure?";
-    $("#errorBoxYesBtn").on("click", function () {
+    $('#errorBox').modal("hide");
+    $('#areYouSureBox').modal("show");
+    $("#areYouSureBoxYesBtn").on("click", function () {
       // @ts-ignore
-      $('#errorBox').modal('hide');
+      $('#areYouSureBox').modal('hide');
       if (param == null) {
         func();
       } else {
         func(param);
       }
+    });
+    $("#areYouSureBoxNoBtn").on("click", function () {
+      // @ts-ignore
+      $('#areYouSureBox').modal('hide');
+      console.log("1");
+      return false;
     });
   });
   $("#errorBoxNoBtn").on("click", function () {
@@ -225,7 +226,6 @@ function errorBox(message, func, param = null) {
     console.log("1");
     return false;
   });
-  return false;
 }
 
 // JavaScript for Keyboard
