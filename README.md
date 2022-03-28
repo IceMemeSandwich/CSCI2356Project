@@ -11,7 +11,7 @@
 
 ### Client-Side
 
-- [] C-01: One square key on the keyboard shall be 50px by 50px.
+- [ ] C-01: One square key on the keyboard shall be 50px by 50px.
 - [] C-02: The space around each key (above, below, left, and right) shall
   be 25px.
 - [] C-03: The font size for all text, including on the keys, is 2 times the default
