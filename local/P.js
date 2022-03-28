@@ -10,18 +10,23 @@ function setup() {
 
   $.get(SERVER_URL + "/receive", receive).fail(errorCallback1);
 
+  // @ts-ignore
   let toggles = document.querySelectorAll(".switch input");
+  // @ts-ignore
   let editArea = document.getElementById("editArea");
 
   // edit switch 1
   $("#edit1").on("change", function (event) {
+    // @ts-ignore
     switch (event.target.checked) {
       case false:
         closeEdit();
+        // @ts-ignore
         event.target.checked = false;
         break;
       case true:
         setupBox(1);
+        // @ts-ignore
         event.target.disabled = false;
         break;
     }
@@ -29,13 +34,16 @@ function setup() {
 
   // edit switch 2
   $("#edit2").on("change", function (event) {
+    // @ts-ignore
     switch (event.target.checked) {
       case false:
         closeEdit();
+        // @ts-ignore
         event.target.checked = false;
         break;
       case true:
         setupBox(2);
+        // @ts-ignore
         event.target.disabled = false;
         break;
     }
@@ -43,13 +51,16 @@ function setup() {
 
   // edit switch 3
   $("#edit3").on("change", function (event) {
+    // @ts-ignore
     switch (event.target.checked) {
       case false:
         closeEdit();
+        // @ts-ignore
         event.target.checked = false;
         break;
       case true:
         setupBox(3);
+        // @ts-ignore
         event.target.disabled = false;
         break;
     }
@@ -58,14 +69,17 @@ function setup() {
 // publish switches
 
   $("#publish1").on("change", function (event) {
+    // @ts-ignore
     publish(1, event.target.checked);
   });
 
   $("#publish2").on("change", function (event) {
+    // @ts-ignore
     publish(2, event.target.checked);
   });
 
   $("#publish3").on("change", function (event) {
+    // @ts-ignore
     publish(3, event.target.checked);
   });
 
@@ -79,14 +93,18 @@ function setupBox(box) {
   editArea.style.display = 'table-cell';
   activeBox = box;
   var retrievedBoxObject = JSON.parse(window.localStorage.getItem('box' + box.toString()));
+  // @ts-ignore
   document.getElementById("textInputBox").value = retrievedBoxObject;
   // Make other toggles disabled when edit1 is selected - Devin
   for (let i of toggles) {
+        // @ts-ignore
         i.disabled = true;
     }
   // if post is posted, disable textbox and put the contents of whats online
   if (onlinePosts[box.toString()]["posted"] == true) {
+    // @ts-ignore
     document.getElementById("textInputBox").value = onlinePosts[box.toString()]["post"];
+    // @ts-ignore
     document.getElementById("textInputBox").disabled = true;
   }
 }
@@ -106,15 +124,18 @@ function publish(box, publish) {
 function closeEdit() {
   document.getElementById("editArea").style.display = "none";
   var keyboardMenu = document.getElementById('keyboardMenu');
+  // @ts-ignore
   var keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
   $('#keyboardMenu').toggleClass('show');
   keyboardMenuBS.hide();
   // every switch
   var toggles = document.querySelectorAll(".switch input");
   for (let i of toggles) {
+    // @ts-ignore
     i.disabled = false;
   }
   // in case the text box was disabled
+  // @ts-ignore
   document.getElementById("textInputBox").disabled = false;
   saveTextBox();
   // closes the toggle by clicking it (i have no better ideas that work)
@@ -185,12 +206,14 @@ console.log(err.responseText);
 
 // Devin
 function toCaps() {
+  // @ts-ignore
   let n = Object.keys(KEYS);
   switch (capsPressed) {
     case true:
       // Make the output not caps
       capsPressed = false;
       for (let i of n) {
+        // @ts-ignore
         document.getElementById(i).text = KEYS[i][0];
       }
       break
@@ -198,6 +221,7 @@ function toCaps() {
       // Make the output caps
       capsPressed = true;
       for (let i of n) {
+        // @ts-ignore
         document.getElementById(i).text = KEYS[i][1];
       }
       break
@@ -215,22 +239,28 @@ function addChar(selection) {
     case "bksp":
       // Set the id'ed field to a shortened string
       // Connor M.
+      // @ts-ignore
       $("#textInputBox").val(currChars.substring(0, currChars.length - 1));
       break;
     case "enter":
       // Connor M.
+      // @ts-ignore
       currChars = $("#textInputBox").val(currChars.concat("\n"));
       break;
     case "space":
+      // @ts-ignore
       currChars = $("#textInputBox").val(currChars.concat(" "));
       break;
     default:
       switch (capsPressed) {
         case true:
+          // @ts-ignore
           $("#textInputBox").val(currChars.concat(KEYS[selection][1]));
+          // @ts-ignore
           toCaps(false);
           break;
         case false:
+          // @ts-ignore
           $("#textInputBox").val(currChars.concat(KEYS[selection][0]));
           break;
       }
