@@ -125,7 +125,7 @@
           <button type="button" class="btn btn-primary" id="saveBtnTop" style="font-size:2em" style ="vertical-align: middle;" onclick="saveTextBox()">Save</button>
           <!-- Closes menu (for now) -->
           <button type="button" class="btn btn-secondary" id="cancelBtnTop" style="font-size:2em" onclick="closeEdit()">Close</button>
-          <button type="button" class="btn btn-danger" id="clearBtnTop" style="font-size:2em" onclick="clearLocalCopy()">Clear</button>
+          <button type="button" class="btn btn-danger" id="clearBtnTop" style="font-size:2em" onclick="errorBox('Are you sure you want to delete all your work?' , clearLocalCopy)">Clear</button>
           <button type="button" class="btn btn-primary"  style="font-size:2em" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
             <i class="bi bi-keyboard"></i>
           </button>
@@ -139,7 +139,7 @@
         <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
           <button type="button" class="btn btn-primary" id="saveBtnBottom" style="font-size:2em" onclick="saveTextBox()">Save</button>
           <button type="button" class="btn btn-secondary" id="cancelBtnBottom" style="font-size:2em" onclick="closeEdit()">Close</button>
-          <button type="button" class="btn btn-danger" id="clearBtnBottom" style="font-size:2em" onclick="clearLocalCopy()">Clear</button>
+          <button type="button" class="btn btn-danger" id="clearBtnBottom" style="font-size:2em" onclick="errorBox('Are you sure you want to delete all your work?' , clearLocalCopy)">Clear</button>
           <button type="button" class="btn btn-primary" data-toggle="button" style="font-size:2em "aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
             <i class="bi bi-keyboard"></i>
           </button> 
@@ -151,8 +151,6 @@
     </div>
 
     <!-- error message - Devin-->
-    <!-- TODO replace example text -->
-    <!-- TODO Make error message replaceable (in javascript) -->
     <div class="modal fade" id="errorBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -163,6 +161,24 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" id="errorBoxNoBtn">No</button>
             <button type="button" class="btn btn-primary" id="errorBoxYesBtn">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- I gave given up, you win - Devin -->
+    <div class="modal fade" id="areYouSureBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Popup</h5>
+          </div>
+          <div class="modal-body" id="areYouSureBox-body">
+            Are You Sure?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="areYouSureBoxNoBtn">No</button>
+            <button type="button" class="btn btn-primary" id="areYouSureBoxYesBtn">Yes</button>
           </div>
         </div>
       </div>
