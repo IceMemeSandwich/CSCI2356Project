@@ -12,7 +12,7 @@
 ### Client-Side
 
 - [x] C-01: <s>One square key on the keyboard shall be 50px by 50px.</s> <strong>(terry said our size is okay which is not 50x50 - chris)</strong>
-- [ ] C-02: The space around each key (above, below, left, and right) shall
+- [x] C-02: The space around each key (above, below, left, and right) shall
       be 25px.
 - [ ] C-03: The font size for all text, including on the keys, is 2 times the default
       font size.
@@ -39,7 +39,7 @@
       clicked, all the Blog Number, Edit, and Publish columns disappear.</s> <strong>(terry said disabling them is okay as well - chris)</strong>
 - [x] C-20: When an edit toggle is clicked, the text entry area and keyboard shall appear.
 - [ ] C-21: The text entry area shall be 8 lines tall.
-- [ ] C-22: The text entry area shall be above the keyboard.
+- [x] C-22: The text entry area shall be above the keyboard.
 - [x] C-23: The text entry area shall have a save button.
 - [x] C-24: The text entry area shall have a cancel button.
 - [ ] C-25: The text entry area shall have a one-time undo button.
