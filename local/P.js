@@ -7,7 +7,6 @@ var capsPressed = false;
 var onlinePosts = {};
 
 function setup() {
-
   $.get(SERVER_URL + "/receive", receive).fail(errorCallback1);
 
   // @ts-ignore
@@ -87,6 +86,7 @@ function setup() {
 
 // Cleaning time
 function setupBox(box) {
+
   let toggles = document.querySelectorAll(".switch input");
   let editArea = document.getElementById("editArea");
 
@@ -169,18 +169,6 @@ function clearLocalCopy() {
   }
 }
 
-// talking to server functions - Devin R.
-
-// function send(id, name, post) {
-//   // Sends the text of a textbox and its number as a JSON to the server for saving
-//   let text = {
-//     "id": id,
-//     "name": name,
-//     "post": post
-//   };
-//   $.post(SERVER_URL + "/send", text, callback1).fail(errorCallback1);
-// }
-
 function receive(posts) {
   // all we need is three post for now, but sometime later write someway to get a total amount
   onlinePosts = posts;
@@ -201,6 +189,35 @@ function errorCallback1(err) {
 console.log(err.responseText);
 }
 
+
+
+/**
+ * Provides a yes/no popup with another conformation popup afterwards
+ * Devin Robar
+ * @param  {string} message message for textbox
+ * 
+ * @returns {boolean} 
+ */
+function errorBox(message, func) {
+  document.getElementById('errorBox-body').innerHTML = message;
+  // @ts-ignore
+  $('#errorBox').modal("show");
+  $("#errorBoxYesBtn").on("click", function () {
+    document.getElementById('errorBox-body').innerHTML = "Are you sure?";
+    $("#errorBoxYesBtn").on("click", function () {
+      // @ts-ignore
+      $('#errorBox').modal('hide');
+      func();
+    });
+  });
+  $("#errorBoxNoBtn").on("click", function () {
+    // @ts-ignore
+    $('#errorBox').modal('hide');
+    console.log("1");
+    return false;
+  });
+  return false;
+}
 
 // JavaScript for Keyboard
 
