@@ -11,7 +11,7 @@
 
 ### Client-Side
 
-- [ ] C-01: One square key on the keyboard shall be 50px by 50px.
+- [x] C-01: One square key on the keyboard shall be 50px by 50px. (terry said our size is okay which is not 50x50 - chris)
 - [ ] C-02: The space around each key (above, below, left, and right) shall
       be 25px.
 - [ ] C-03: The font size for all text, including on the keys, is 2 times the default
@@ -35,8 +35,8 @@
 - [ ] C-16: Every word or phrase in the word bank is visible to the user at
       the same time.
 - [ ] C-17: The colour scheme shall have a Montreal Canadians theme.
-- [ ] C-19: P1 shall be modified so that when an edit toggle is
-      clicked, all the Blog Number, Edit, and Publish columns disappear.
+- [x] C-19: P1 shall be modified so that when an edit toggle is
+      clicked, all the Blog Number, Edit, and Publish columns disappear. (terry said disabling them is okay as well - chris)
 - [x] C-20: When an edit toggle is clicked, the text entry area and keyboard shall appear.
 - [ ] C-21: The text entry area shall be 8 lines tall.
 - [ ] C-22: The text entry area shall be above the keyboard.
