@@ -69,17 +69,17 @@ function setup() {
 
   $("#publish1").on("change", function (event) {
     // @ts-ignore
-    publish(1, event.target.checked);
+    errorBox("Are you sure that you want to publish #1?",publish,1);
   });
 
   $("#publish2").on("change", function (event) {
     // @ts-ignore
-    publish(2, event.target.checked);
+    errorBox("Are you sure that you want to publish #2?",publish,2);
   });
 
   $("#publish3").on("change", function (event) {
     // @ts-ignore
-    publish(3, event.target.checked);
+    errorBox("Are you sure that you want to publish #1?",publish,3);
   });
 
 }
@@ -108,13 +108,15 @@ function setupBox(box) {
     document.getElementById("textInputBox").disabled = true;
   }
 }
-
-function publish(box, publish) {
+/**
+ * publishes post to server
+ * @param  {number} box
+ */
+function publish(box) {
   let post = {
     "id": box.toString(),
     "title": box.toString(), // temp
     "post": JSON.parse(window.localStorage.getItem('box' + box.toString())),
-    "publish": publish
   };
   $.post(SERVER_URL + "/send", post, callback1).fail(errorCallback1);
   // update local copy of whats online (bad temp solution (do better)) - Devin
@@ -171,11 +173,12 @@ function clearLocalCopy() {
 
 function receive(posts) {
   // all we need is three post for now, but sometime later write someway to get a total amount
+  console.log(posts);
   onlinePosts = posts;
   for (let i in posts) {
     if (posts[i]["posted"] == true) {
       // closes the toggle by clicking it (i have no better ideas that work)
-      $("#publish" + i).trigger("click");
+      $("#publish" + i).prop("checked", true);
     }
     }
 
@@ -194,11 +197,13 @@ console.log(err.responseText);
 /**
  * Provides a yes/no popup with another conformation popup afterwards
  * Devin Robar
+ *  * functions passed here must have 1 or 0 parameters
  * @param  {string} message message for textbox
- * 
+ * @param  {function} func
+ * @param  {function} param
  * @returns {boolean} 
  */
-function errorBox(message, func) {
+function errorBox(message, func, param = null) {
   document.getElementById('errorBox-body').innerHTML = message;
   // @ts-ignore
   $('#errorBox').modal("show");
@@ -207,7 +212,11 @@ function errorBox(message, func) {
     $("#errorBoxYesBtn").on("click", function () {
       // @ts-ignore
       $('#errorBox').modal('hide');
-      func();
+      if (param == null) {
+        func();
+      } else {
+        func(param);
+      }
     });
   });
   $("#errorBoxNoBtn").on("click", function () {
