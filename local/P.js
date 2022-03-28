@@ -3,7 +3,7 @@ const SERVER_URL = "http://ugdev.cs.smu.ca:3111";
 
 var activeBox = 0;
 var capsPressed = false;
-
+var count = 0;
 var onlinePosts = {};
 
 function setup() {
@@ -247,6 +247,12 @@ function addChar(selection) {
   let currChars = $("#textInputBox").val();
 
   switch (selection) {
+    // chris and matt
+    case "undo":
+      var textVal = $("#textInputBox").val();
+      var lastIndex = textVal.lastIndexOf(" ");
+      $("#textInputBox").val(textVal.substring(0, lastIndex + 1));
+    break;
     case "bksp":
       // Set the id'ed field to a shortened string
       // Connor M.
