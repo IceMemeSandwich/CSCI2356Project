@@ -52,18 +52,20 @@ app.get("/receive", function (req, res) {
 //  }
 app.post("/send", function (req, res) {
     console.log("Id #" + req.body.id + ", Title: " + req.body.title + ", Post: " + req.body.post);
-    let publish = (req.body.publish === 'true');
+    let publish = posts[req.body.id]["posted"];
+    console.log(publish);
     switch (publish) {
-      case false:
-         posts[req.body.id]["posted"] = publish;
-         break;
       case true:
+         posts[req.body.id]["posted"] = false;
+         break;
+      case false:
          posts[req.body.id]["title"] = req.body.title;
          posts[req.body.id]["post"] = req.body.post;
-         posts[req.body.id]["posted"] = publish;
+         posts[req.body.id]["posted"] = true;
          console.log("posts");
          break;
     }
+    console.log(posts);
 });
 
 // makes this program run on the port that was set at the top of the script
