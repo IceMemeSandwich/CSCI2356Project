@@ -193,6 +193,7 @@
         <tr>
           <td> <!-- keyboard -->
             <div style="margin-bottom: 15px">
+              <img STYLE="position:absolute;Left:100px; width:300px; height:250px" SRC="https://pixy.org/src/119/1198273.jpg"></a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="oneBtn" onclick="addChar('oneBtn')">1</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="twoBtn" onclick="addChar('twoBtn')">2</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="threeBtn" onclick="addChar('threeBtn')">3</a>&nbsp;&nbsp;&nbsp;
@@ -205,7 +206,11 @@
               <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="zeroBtn" onclick="addChar('zeroBtn')">0</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="capsBtn" onclick="toCaps()">
               <i class="bi-arrow-up"></i>
-            </a>
+              </a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="undoBtn" onclick="addChar('undo')">Undo</a>
+            </a>&nbsp;&nbsp;&nbsp;
+
+              <img STYLE="position:absolute; right:100px; width:300px; height:250px" SRC="https://pixy.org/src/119/1198273.jpg">
               
               
             </div>
@@ -223,7 +228,8 @@
               <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="pBtn" onclick="addChar('pBtn')">p</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="backBtn" onclick="addChar('bksp')">
               <i class="bi-arrow-left"></i>
-              </a>
+              </a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:2em" class="btn btn-dark large rounded-0 keyboardButton keyboardWideBtn" id="capsLockBtn" onclick="addChar('caps')">Caps</a>
             </div>
             
             <div style="margin-bottom: 15px">
@@ -254,6 +260,11 @@
               <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="qmarkBtn" onclick="addChar('qmarkBtn')">?</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn btn-danger normal rounded-0 keyboardButton keyboardNormalBtn" id="commaBtn" onclick="addChar('commaBtn')">,</a>
               
+            </div>
+
+            <div>
+             
+
             </div>
 
             <div class="input-group mb-3">
