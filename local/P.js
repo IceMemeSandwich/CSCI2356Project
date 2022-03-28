@@ -139,29 +139,16 @@ function closeEdit() {
   // in case the text box was disabled
   // @ts-ignore
   document.getElementById("textInputBox").disabled = false;
-  saveTextBox();
+  // written by Connor MacNeil, Devin Robar
+  window.localStorage.setItem('box' + activeBox.toString(), JSON.stringify($("#textInputBox").val()));
   // closes the toggle by clicking it (doing it the other way does not work for some reason)
   $("#edit" + activeBox.toString()).trigger("click");
 }
 
-/**
- * Function to save the values of the text boxes into individual objects stored in local storage
- * written by Connor MacNeil
- */
- function saveTextBox() {
-  if (activeBox == 1) {
-    window.localStorage.setItem('box1', JSON.stringify($("#textInputBox").val()));
-  } else if (activeBox == 2) {
-    window.localStorage.setItem('box2', JSON.stringify($("#textInputBox").val()));
-  } else if (activeBox == 3) {
-    window.localStorage.setItem('box3', JSON.stringify($("#textInputBox").val()));
-  }
-  
-}
-
 function clearLocalCopy() {
   $("#textInputBox").val("");
-  saveTextBox();
+  // written by Connor MacNeil, Devin Robar
+  window.localStorage.setItem('box' + activeBox.toString(), JSON.stringify($("#textInputBox").val()));
   closeEdit();
 }
 
