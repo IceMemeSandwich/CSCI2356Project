@@ -16,7 +16,7 @@
       be 25px.
 - [ ] C-03: The font size for all text, including on the keys, is 2 times the default
       font size.
-- [ ] C-04: The keyboard width must not go beyond 725px.
+- [x] C-04: The keyboard width must not go beyond 725px. (terry said we good - chris)
 - [x] C-05: A full keyboard shall be implemented and all the digits and all the uppercase and
       lowercase letters will be included.
 - [x] C-06: Each key will expand to 2 times its dimensions when hovered.
