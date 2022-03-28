@@ -7,7 +7,6 @@ var capsPressed = false;
 var onlinePosts = {};
 
 function setup() {
-
   $.get(SERVER_URL + "/receive", receive).fail(errorCallback1);
 
   // @ts-ignore
@@ -70,23 +69,24 @@ function setup() {
 
   $("#publish1").on("change", function (event) {
     // @ts-ignore
-    publish(1, event.target.checked);
+    errorBox("Are you sure that you want to publish #1?",publish,1);
   });
 
   $("#publish2").on("change", function (event) {
     // @ts-ignore
-    publish(2, event.target.checked);
+    errorBox("Are you sure that you want to publish #2?",publish,2);
   });
 
   $("#publish3").on("change", function (event) {
     // @ts-ignore
-    publish(3, event.target.checked);
+    errorBox("Are you sure that you want to publish #1?",publish,3);
   });
 
 }
 
 // Cleaning time
 function setupBox(box) {
+
   let toggles = document.querySelectorAll(".switch input");
   let editArea = document.getElementById("editArea");
 
@@ -108,13 +108,15 @@ function setupBox(box) {
     document.getElementById("textInputBox").disabled = true;
   }
 }
-
-function publish(box, publish) {
+/**
+ * publishes post to server
+ * @param  {number} box
+ */
+function publish(box) {
   let post = {
     "id": box.toString(),
     "title": box.toString(), // temp
     "post": JSON.parse(window.localStorage.getItem('box' + box.toString())),
-    "publish": publish
   };
   $.post(SERVER_URL + "/send", post, callback1).fail(errorCallback1);
   // update local copy of whats online (bad temp solution (do better)) - Devin
@@ -138,7 +140,7 @@ function closeEdit() {
   // @ts-ignore
   document.getElementById("textInputBox").disabled = false;
   saveTextBox();
-  // closes the toggle by clicking it (i have no better ideas that work)
+  // closes the toggle by clicking it (doing it the other way does not work for some reason)
   $("#edit" + activeBox.toString()).trigger("click");
 }
 
@@ -158,36 +160,17 @@ function closeEdit() {
 }
 
 function clearLocalCopy() {
-  var clearI = confirm("Do you want to delete your work?");
-  switch (clearI){
-    case false:
-      break;
-    default:
-      $("#textInputBox").val("");
-      saveTextBox();
-      closeEdit();
-  }
+  $("#textInputBox").val("");
+  saveTextBox();
+  closeEdit();
 }
-
-// talking to server functions - Devin R.
-
-// function send(id, name, post) {
-//   // Sends the text of a textbox and its number as a JSON to the server for saving
-//   let text = {
-//     "id": id,
-//     "name": name,
-//     "post": post
-//   };
-//   $.post(SERVER_URL + "/send", text, callback1).fail(errorCallback1);
-// }
 
 function receive(posts) {
   // all we need is three post for now, but sometime later write someway to get a total amount
   onlinePosts = posts;
   for (let i in posts) {
     if (posts[i]["posted"] == true) {
-      // closes the toggle by clicking it (i have no better ideas that work)
-      $("#publish" + i).trigger("click");
+      $("#publish" + i).attr("checked", true);
     }
     }
 
@@ -201,6 +184,47 @@ function errorCallback1(err) {
 console.log(err.responseText);
 }
 
+
+
+/**
+ * Provides a yes/no popup with another conformation popup afterwards
+ * Devin Robar
+ *  * functions passed here must have 1 or 0 parameters
+ * @param  {string} message message for textbox
+ * @param  {function} func
+ * @param  {function} param
+ * @returns {boolean} 
+ */
+function errorBox(message, func, param = null) {
+  document.getElementById('errorBox-body').innerHTML = message;
+  // @ts-ignore
+  $('#errorBox').modal("show");
+  $("#errorBoxYesBtn").on("click", function () {
+    $('#errorBox').modal("hide");
+    $('#areYouSureBox').modal("show");
+    $("#areYouSureBoxYesBtn").on("click", function () {
+      // @ts-ignore
+      $('#areYouSureBox').modal('hide');
+      if (param == null) {
+        func();
+      } else {
+        func(param);
+      }
+    });
+    $("#areYouSureBoxNoBtn").on("click", function () {
+      // @ts-ignore
+      $('#areYouSureBox').modal('hide');
+      console.log("1");
+      return false;
+    });
+  });
+  $("#errorBoxNoBtn").on("click", function () {
+    // @ts-ignore
+    $('#errorBox').modal('hide');
+    console.log("1");
+    return false;
+  });
+}
 
 // JavaScript for Keyboard
 
