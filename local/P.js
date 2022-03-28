@@ -140,7 +140,7 @@ function closeEdit() {
   // @ts-ignore
   document.getElementById("textInputBox").disabled = false;
   saveTextBox();
-  // closes the toggle by clicking it (i have no better ideas that work)
+  // closes the toggle by clicking it (doing it the other way does not work for some reason)
   $("#edit" + activeBox.toString()).trigger("click");
 }
 
@@ -167,12 +167,10 @@ function clearLocalCopy() {
 
 function receive(posts) {
   // all we need is three post for now, but sometime later write someway to get a total amount
-  console.log(posts);
   onlinePosts = posts;
   for (let i in posts) {
     if (posts[i]["posted"] == true) {
-      // closes the toggle by clicking it (i have no better ideas that work)
-      $("#publish" + i).prop("checked", true);
+      $("#publish" + i).attr("checked", true);
     }
     }
 
