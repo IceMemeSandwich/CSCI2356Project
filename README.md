@@ -42,7 +42,7 @@
 - [x] C-22: The text entry area shall be above the keyboard.
 - [x] C-23: The text entry area shall have a save button.
 - [x] C-24: The text entry area shall have a cancel button.
-- [ ] C-25: The text entry area shall have a one-time undo button.
+- [x] C-25: The text entry area shall have a one-time undo button.
 - [x] C-26: When the save button [C-23] is clicked a first warning shall
       enable the user to cancel or continue.
 - [x] C-27: When the first warning's continue option [C-26] is selected, a
