@@ -127,7 +127,7 @@ function closeEdit() {
   document.getElementById("editArea").style.display = "none";
   var keyboardMenu = document.getElementById('keyboardMenu');
   // @ts-ignore
-  var keyboardMenuBS = new bootstrap.Offcanvas(keyboardMenu);
+  var keyboardMenuBS = bootstrap.Offcanvas.getInstance(keyboardMenu);
   $('#keyboardMenu').toggleClass('show');
   keyboardMenuBS.hide();
   // every switch
