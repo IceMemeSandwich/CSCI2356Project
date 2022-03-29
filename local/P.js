@@ -279,10 +279,18 @@ function addChar(selection) {
           $("#textInputBox").val(currChars.concat(KEYS[selection][1]));
           // @ts-ignore
           toCaps(false);
+          // C-08 - Devin R.
+          if ($("#textInputBox").val().slice(-1) == '.') {
+            $("#textInputBox").val(currChars.concat(". "));
+          }
           break;
         case false:
           // @ts-ignore
           $("#textInputBox").val(currChars.concat(KEYS[selection][0]));
+          // C-08 - Devin R.
+          if ($("#textInputBox").val().slice(-1) == '.') {
+            $("#textInputBox").val(currChars.concat(". "));
+          }
           break;
       }
   } 
