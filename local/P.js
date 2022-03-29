@@ -3,6 +3,7 @@ const SERVER_URL = "http://ugdev.cs.smu.ca:3111";
 
 var activeBox = 0;
 var capsPressed = false;
+var capsLockOn = false;
 var count = 0;
 var onlinePosts = {};
 
@@ -82,6 +83,23 @@ function setup() {
     errorBox("Are you sure that you want to publish #1?",publish,3);
   });
 
+
+  // other stuff
+
+  $("#capsLockBtn").on("click", function (event) {
+    switch (capsLockOn) {
+      case false:
+        capsLockOn = true;
+        toCaps();
+        document.getElementById("capsLockBtn").innerHTML = '<i class="bi bi-capslock-fill"></i>';
+        break;
+      case true:
+        capsLockOn = false;
+        toCaps();
+        document.getElementById("capsLockBtn").innerHTML = '<i class="bi bi-capslock"></i>';
+        break;
+    }
+  });
 }
 
 // Cleaning time
@@ -180,7 +198,6 @@ console.log(err.responseText);
  * @param  {string} message message for textbox
  * @param  {function} func
  * @param  {function} param
- * @returns {boolean} 
  */
 function errorBox(message, func, param = null) {
   document.getElementById('errorBox-body').innerHTML = message;
@@ -221,14 +238,15 @@ function toCaps() {
   let n = Object.keys(KEYS);
   switch (capsPressed) {
     case true:
-      // Make the output not caps
-      capsPressed = false;
-      for (let i of n) {
-        // @ts-ignore
-        document.getElementById(i).text = KEYS[i][0];
+      if (capsLockOn != true) {
+        // Make the output not caps
+        capsPressed = false;
+        for (let i of n) {
+          document.getElementById(i).text = KEYS[i][0];
+        }
+        // change icon for shift key
+        document.getElementById("capsBtn").innerHTML = '<i class="bi bi-shift"></i>';
       }
-      // change icon for shift key
-      document.getElementById("capsBtn").innerHTML = '<i class="bi bi-shift"></i>';
       break;
     case false:
       // Make the output caps
