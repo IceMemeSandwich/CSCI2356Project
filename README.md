@@ -14,8 +14,8 @@
 - [x] C-01: <s>One square key on the keyboard shall be 50px by 50px.</s> <strong>(terry said our size is okay which is not 50x50 - chris)</strong>
 - [x] C-02: The space around each key (above, below, left, and right) shall
       be 25px.
-- [ ] C-03: The font size for all text, including on the keys, is 2 times the default
-      font size.
+- [x] C-03: The font size for all text, including on the keys, is 2 times the default
+      font size. (i think we are good for this, not 100% sure - chris)
 - [x] C-04: <s>The keyboard width must not go beyond 725px.</s> <strong>(terry said we good - chris)</strong>
 - [x] C-05: A full keyboard shall be implemented and all the digits and all the uppercase and
       lowercase letters will be included.
