@@ -21,7 +21,7 @@
       lowercase letters will be included.
 - [x] C-06: Each key will expand to 2 times its dimensions when hovered.
 - [x] C-07: The keyboard shall initially display lowercase keys.
-- [x] C-08: A space will automatically be inserted after a word. _"I took this to mean after a period (not including the word bank). - Devin"_
+- [x] C-08: A space will automatically be inserted after a word. **_"I took this to mean after a period (not including the word bank). - Devin"_**
 - [x] C-09: A shift key shall be present.
 - [x] C-10: When the shift key is pressed, the whole keyboard will change
       to uppercase letters.
