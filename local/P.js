@@ -125,12 +125,12 @@ function publish(box) {
 
 function closeEdit() {
   document.getElementById("editArea").style.display = "none";
+  // Closes the offcanvas menu after editArea is closed - Devin
   var keyboardMenu = document.getElementById('keyboardMenu');
   // @ts-ignore
   var keyboardMenuBS = bootstrap.Offcanvas.getInstance(keyboardMenu);
-  $('#keyboardMenu').toggleClass('show');
   keyboardMenuBS.hide();
-  // every switch
+  // reenables all the toggles - Devin
   var toggles = document.querySelectorAll(".switch input");
   for (let i of toggles) {
     // @ts-ignore
