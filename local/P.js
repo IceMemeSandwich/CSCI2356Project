@@ -312,7 +312,11 @@ function addChar(selection) {
             $("#textInputBox").val(currChars.concat(". "));
           } else if ($("#textInputBox").val().slice(-1) == ',') {
             $("#textInputBox").val(currChars.concat(", "));
-          }
+          } else if ($("#textInputBox").val().slice(-1) == '!') {
+            $("#textInputBox").val(currChars.concat("! "));
+          } else if ($("#textInputBox").val().slice(-1) == '?') {
+            $("#textInputBox").val(currChars.concat("? "));
+          } 
           break;
       }
   } 
