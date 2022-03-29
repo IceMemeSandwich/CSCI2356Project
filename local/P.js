@@ -227,7 +227,9 @@ function toCaps() {
         // @ts-ignore
         document.getElementById(i).text = KEYS[i][0];
       }
-      break
+      // change icon for shift key
+      document.getElementById("capsBtn").innerHTML = '<i class="bi bi-shift"></i>';
+      break;
     case false:
       // Make the output caps
       capsPressed = true;
@@ -235,7 +237,9 @@ function toCaps() {
         // @ts-ignore
         document.getElementById(i).text = KEYS[i][1];
       }
-      break
+      // change icon for shift key
+      document.getElementById("capsBtn").innerHTML = '<i class="bi bi-shift-fill"></i>';
+      break;
   }
 }
 
