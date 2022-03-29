@@ -300,6 +300,8 @@ function addChar(selection) {
           // C-08 - Devin R.
           if ($("#textInputBox").val().slice(-1) == '.') {
             $("#textInputBox").val(currChars.concat(". "));
+          } else if ($("#textInputBox").val().slice(-1) == ',') {
+            $("#textInputBox").val(currChars.concat(", "));
           }
           break;
         case false:
@@ -308,6 +310,8 @@ function addChar(selection) {
           // C-08 - Devin R.
           if ($("#textInputBox").val().slice(-1) == '.') {
             $("#textInputBox").val(currChars.concat(". "));
+          } else if ($("#textInputBox").val().slice(-1) == ',') {
+            $("#textInputBox").val(currChars.concat(", "));
           }
           break;
       }
