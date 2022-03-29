@@ -96,7 +96,7 @@ td {
 table#bigBoy {
   width: 90%;
   margin-left: 5%;
-  background-color: #32324e;
+  background-color: rgb(50, 50, 78);
   border-radius: 24px;
 }
 
@@ -106,33 +106,52 @@ table#bigBoy {
 }
 
 body {
-  background-color: #000022;
+  background-color: rgb(0, 0, 34);
+}
+
+.navbar {
+  background-color: rgb(193, 0, 0);
 }
 
 .keyboardMenu {
-  /*  = opacity */
-  background-color: rgba(31, 31, 31, 0.5);
+  background-color: rgb(50, 50, 78);
 }
 
 .keyboardButton {
   transition: transform 0.2s;
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+}
+
+.keyboardButton:hover {
+  color: rgb(255, 255, 255);
+  transform: scale(2);
 }
 
 .keyboardNormalBtn {
-  border-radius: 8px;
+  /* a = opacity */
+  background-color: rgba(255, 255, 255, 0.2);
   height: 60px;
-  width: 50px;
+  width: 75px;
+}
+
+.keyboardNormalBtn:hover {
+  /* changing the background color makes it not transparent anymore */
+  background-color: rgb(105, 105, 105);
+}
+
+.keyboardNormalBtn:active {
+  background-color: rgb(73, 73, 73);
+  transform: scale(2);
+}
+
+.keyboardNormalBtn:active {
+  background-color: rgb(73, 73, 73);
+  transform: scale(2);
 }
 
 .keyboardWideBtn {
   height: 60px;
   width: 119px;
-}
-
-.keyboardButton:hover {
-  transform: scale(2);
-}
-
-.navbar {
-  background-color: #c10000;
+  background-color: rgba(0, 0, 0, 0.2);
 }
