@@ -271,10 +271,10 @@ function addChar(selection) {
   switch (selection) {
     // chris and matt
     case "undo":
-      var textVal = $("#textInputBox").val();
-      var lastIndex = textVal.lastIndexOf(" ");
+      let textVal = $("#textInputBox").val();
+      let lastIndex = textVal.trimEnd().lastIndexOf(" ");
       $("#textInputBox").val(textVal.substring(0, lastIndex + 1));
-    break;
+      break;
     case "bksp":
       // Set the id'ed field to a shortened string
       // Connor M.
