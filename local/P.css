@@ -96,7 +96,7 @@ td {
 table#bigBoy {
   width: 90%;
   margin-left: 5%;
-  background-color: rgb(92, 92, 92);
+  background-color: #32324e;
   border-radius: 24px;
 }
 
@@ -106,7 +106,12 @@ table#bigBoy {
 }
 
 body {
-  background-color: rgb(31, 31, 31);
+  background-color: #000022;
+}
+
+.keyboardMenu {
+  /*  = opacity */
+  background-color: rgba(31, 31, 31, 0.5);
 }
 
 .keyboardButton {
@@ -114,6 +119,7 @@ body {
 }
 
 .keyboardNormalBtn {
+  border-radius: 8px;
   height: 60px;
   width: 50px;
 }
@@ -125,4 +131,8 @@ body {
 
 .keyboardButton:hover {
   transform: scale(2);
+}
+
+.navbar {
+  background-color: #c10000;
 }

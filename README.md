@@ -34,7 +34,7 @@
       bank by typing it out.
 - [ ] C-16: Every word or phrase in the word bank is visible to the user at
       the same time.
-- [ ] C-17: The colour scheme shall have a Montreal Canadians theme.
+- [x] C-17: The colour scheme shall have a Montreal Canadians theme.
 - [x] C-19: <s>P1 shall be modified so that when an edit toggle is
       clicked, all the Blog Number, Edit, and Publish columns disappear.</s> <strong>(terry said disabling them is okay as well - chris)</strong>
 - [x] C-20: When an edit toggle is clicked, the text entry area and keyboard shall appear.
