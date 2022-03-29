@@ -21,24 +21,24 @@
       lowercase letters will be included.
 - [x] C-06: Each key will expand to 2 times its dimensions when hovered.
 - [x] C-07: The keyboard shall initially display lowercase keys.
-- [ ] C-08: A space will automatically be inserted after a word.
+- [x] C-08: A space will automatically be inserted after a word. **_"I took this to mean after a period (not including the word bank). - Devin"_**
 - [x] C-09: A shift key shall be present.
 - [x] C-10: When the shift key is pressed, the whole keyboard will change
       to uppercase letters.
 - [x] C-11: Numeric and symbol keys may be organized so they are useable
       in one of the two uppercase or lowercase modes.
 - [x] C-12: Once a key is clicked, the effect of the shift key is terminated.
-- [ ] C-13: A caps-lock toggle key shall be present.
+- [x] C-13: A caps-lock toggle key shall be present.
 - [ ] C-14: The keyboard shall contain a word bank area.
 - [ ] C-15: The client shall be able to enter a word or phrase into the word
       bank by typing it out.
 - [ ] C-16: Every word or phrase in the word bank is visible to the user at
       the same time.
-- [ ] C-17: The colour scheme shall have a Montreal Canadians theme.
+- [x] C-17: The colour scheme shall have a Montreal Canadians theme.
 - [x] C-19: <s>P1 shall be modified so that when an edit toggle is
       clicked, all the Blog Number, Edit, and Publish columns disappear.</s> <strong>(terry said disabling them is okay as well - chris)</strong>
 - [x] C-20: When an edit toggle is clicked, the text entry area and keyboard shall appear.
-- [ ] C-21: The text entry area shall be 8 lines tall.
+- [x] C-21: The text entry area shall be 8 lines tall.
 - [x] C-22: The text entry area shall be above the keyboard.
 - [x] C-23: The text entry area shall have a save button.
 - [x] C-24: The text entry area shall have a cancel button.
