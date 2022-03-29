@@ -28,7 +28,7 @@
 - [x] C-11: Numeric and symbol keys may be organized so they are useable
       in one of the two uppercase or lowercase modes.
 - [x] C-12: Once a key is clicked, the effect of the shift key is terminated.
-- [ ] C-13: A caps-lock toggle key shall be present.
+- [x] C-13: A caps-lock toggle key shall be present.
 - [ ] C-14: The keyboard shall contain a word bank area.
 - [ ] C-15: The client shall be able to enter a word or phrase into the word
       bank by typing it out.
