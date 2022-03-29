@@ -38,7 +38,7 @@
 - [x] C-19: <s>P1 shall be modified so that when an edit toggle is
       clicked, all the Blog Number, Edit, and Publish columns disappear.</s> <strong>(terry said disabling them is okay as well - chris)</strong>
 - [x] C-20: When an edit toggle is clicked, the text entry area and keyboard shall appear.
-- [ ] C-21: The text entry area shall be 8 lines tall.
+- [x] C-21: The text entry area shall be 8 lines tall.
 - [x] C-22: The text entry area shall be above the keyboard.
 - [x] C-23: The text entry area shall have a save button.
 - [x] C-24: The text entry area shall have a cancel button.
