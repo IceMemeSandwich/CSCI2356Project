@@ -145,13 +145,18 @@ body {
   transform: scale(2);
 }
 
-.keyboardNormalBtn:active {
-  background-color: rgb(73, 73, 73);
-  transform: scale(2);
-}
-
 .keyboardWideBtn {
   height: 60px;
   width: 119px;
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.keyboardWideBtn:hover {
+  /* changing the background color makes it not transparent anymore */
+  background-color: rgb(43, 42, 42);
+}
+
+.keyboardWideBtn:active {
+  background-color: rgb(24, 24, 24);
+  transform: scale(2);
 }
