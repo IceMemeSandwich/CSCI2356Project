@@ -1,4 +1,11 @@
-// Put this in another file because it will be long and I don't want it in the main file
+/**
+* This is a keyboard JS file, to give each key a lowercase and uppercase value
+*
+* @author Devin Robar
+* @author Connor Macneil
+*/
+
+// Put this in another file because it will be long and don't want it in the main file
 // Formating:
 //      keyid: [
 //         lowercase (0),
