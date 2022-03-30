@@ -141,6 +141,21 @@ function publish(box) {
   onlinePosts[box.toString()]["posted"] = publish;
 }
 
+/**
+ * Function to save the values of the text boxes into individual objects stored in local storage
+ * written by Connor MacNeil
+ */
+function saveTextBox() {
+  if (activeBox == 1) {
+    window.localStorage.setItem('box1', JSON.stringify($("#textInputBox").val()));
+  } else if (activeBox == 2) {
+    window.localStorage.setItem('box2', JSON.stringify($("#textInputBox").val()));
+  } else if (activeBox == 3) {
+    window.localStorage.setItem('box3', JSON.stringify($("#textInputBox").val()));
+  }
+
+}
+
 function closeEdit() {
   document.getElementById("editArea").style.display = "none";
   // Closes the offcanvas menu after editArea is closed - Devin
