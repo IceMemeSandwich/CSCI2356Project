@@ -1,4 +1,9 @@
-// CHANGE LATER
+/**
+* @author Devin Robar
+* @author Connor Macneil
+* @author Chris Churchill
+* @author Matt Audas
+*/
 const SERVER_URL = "http://ugdev.cs.smu.ca:3111";
 
 var activeBox = 0;
