@@ -190,6 +190,20 @@
       id="keyboardMenu" aria-labelledby="keyboardMenu" data-bs-backdrop="false">
       <table style="text-align: center">
         <tr>
+          <td>
+            <div>
+            <h1>Word Bank:</h1>
+              <div class="input-group mb-3">
+                <textarea rows="1"cols="10" id="wordBankEntry"></textarea>
+                <a data-role="button" class="btn btn-secondary normal rounded-0" onclick="wordStore()"><i class="bi bi-star"></i></a>
+              </div>
+              <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons" id="wordBankStorage" style="visibility:visible">
+                <!--<button type="button" class="btn btn-primary">a</button>
+                <button type="button" class="btn btn-primary">b</button>
+                <button type="button" class="btn btn-primary">c</button>-->
+              </div>
+            </div>
+          </td>
           <td> <!-- keyboard by Devin, Chris, Matt-->
             <div style="margin-bottom: 15px">
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="oneBtn" onclick="addChar('oneBtn')">1</a>&nbsp;&nbsp;&nbsp;
@@ -259,16 +273,6 @@
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="qmarkBtn" onclick="addChar('qmarkBtn')">?</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="commaBtn" onclick="addChar('commaBtn')">,</a>
               
-            </div>
-
-            <div class="input-group mb-3">
-              <a data-role="button" class="btn btn-secondary pig rounded-0" onclick="console.log('Push')">Word<i class="bi bi-piggy-bank"></i></a>
-              <textarea rows="1"cols="10"></textarea>
-              <a data-role="button" class="btn btn-secondary normal rounded-0" onclick="console.log('Push')"><i class="bi bi-star"></i></a>
-
-              <a data-role="button" class="btn btn-secondary pig rounded-0" onclick="console.log('Push')">Word<i class="bi bi-piggy-bank"></i></a>
-              <textarea rows="1"cols="10"></textarea>
-              <a data-role="button" class="btn btn-secondary normal rounded-0" onclick="console.log('Push')"><i class="bi bi-star"></i></a>
             </div>
           </td>
         </tr>

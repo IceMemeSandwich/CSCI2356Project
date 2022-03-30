@@ -261,25 +261,43 @@ function toCaps() {
   }
 }
 
+function wordStore() {
+  let wordEntered = $("#wordBankEntry").val();
+  let newWordButton = document.createElement("button");
+  let myDiv = document.getElementById("wordBankStorage");
+  newWordButton.innerHTML = wordEntered;
+  newWordButton.type = "button";
+  newWordButton.classList.add("btn");
+  newWordButton.classList.add("btn-primary");
+  newWordButton.onclick = function() {
+    let currChars = $("#textInputBox").val();
+    $("#textInputBox").val(currChars.concat(wordEntered));
+  }
+  myDiv.appendChild(newWordButton);
+}
+
 // Writing anything after this function will not work (for what reason i have no clue)
 // don't use switch statements kids, because they suck
 
 function addChar(selection) {
   // Get the value from the id'ed field
   let currChars = $("#textInputBox").val();
+  let wordBankChars = $("#wordBankEntry").val();
 
   switch (selection) {
     // chris and matt
     case "undo":
-      let textVal = $("#textInputBox").val();
-      let lastIndex = textVal.trimEnd().lastIndexOf(" ");
-      $("#textInputBox").val(textVal.substring(0, lastIndex + 1));
+      let lastIndex = currChars.trimEnd().lastIndexOf(" ");
+      $("#textInputBox").val(currChars.substring(0, lastIndex + 1));
+      let lastWordBankIndex = wordBankChars.trimEnd().lastIndexOf(" ");
+      $("#wordBankEntry").val(wordBankChars.substring(0, lastWordBankIndex + 1));
       break;
     case "bksp":
       // Set the id'ed field to a shortened string
       // Connor M.
       // @ts-ignore
       $("#textInputBox").val(currChars.substring(0, currChars.length - 1));
+      $("#wordBankEntry").val(wordBankChars.substring(0, currChars.length - 1));
       break;
     case "enter":
       // Connor M.
@@ -289,34 +307,42 @@ function addChar(selection) {
     case "space":
       // @ts-ignore
       currChars = $("#textInputBox").val(currChars.concat(" "));
+      wordBankChars = $("#wordBankEntry").val(wordBankChars.concat(" "));
       break;
     default:
       switch (capsPressed) {
         case true:
           // @ts-ignore
           $("#textInputBox").val(currChars.concat(KEYS[selection][1]));
+          $("#wordBankEntry").val(currChars.concat(KEYS[selection][1]));
           // @ts-ignore
           toCaps(false);
           // C-08 - Devin R.
-          if ($("#textInputBox").val().slice(-1) == '.') {
-            $("#textInputBox").val(currChars.concat(". "));
-          } else if ($("#textInputBox").val().slice(-1) == ',') {
-            $("#textInputBox").val(currChars.concat(", "));
+          if ($("#textInputBox").val().slice(-1) == '!') {
+            $("#textInputBox").val(currChars.concat("! "));
           }
           break;
         case false:
           // @ts-ignore
           $("#textInputBox").val(currChars.concat(KEYS[selection][0]));
+          $("#wordBankEntry").val(wordBankChars.concat(KEYS[selection][0]));
           // C-08 - Devin R.
           if ($("#textInputBox").val().slice(-1) == '.') {
             $("#textInputBox").val(currChars.concat(". "));
           } else if ($("#textInputBox").val().slice(-1) == ',') {
             $("#textInputBox").val(currChars.concat(", "));
-          } else if ($("#textInputBox").val().slice(-1) == '!') {
-            $("#textInputBox").val(currChars.concat("! "));
           } else if ($("#textInputBox").val().slice(-1) == '?') {
             $("#textInputBox").val(currChars.concat("? "));
-          } 
+          }
+          if ($("#wordBankEntry").val().slice(-1) == '.') {
+            document.getElementById("wordBankEntry").value = "";
+          } else if ($("#wordBankEntry").val().slice(-1) == ',') {
+            document.getElementById("wordBankEntry").value = "";
+          } else if ($("#wordBankEntry").val().slice(-1) == '!') {
+            document.getElementById("wordBankEntry").value = "";
+          } else if ($("#wordBankEntry").val().slice(-1) == '?') {
+            document.getElementById("wordBankEntry").value = "";
+          }
           break;
       }
   } 
