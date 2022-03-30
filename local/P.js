@@ -147,7 +147,10 @@ function closeEdit() {
   var keyboardMenu = document.getElementById('keyboardMenu');
   // @ts-ignore
   var keyboardMenuBS = bootstrap.Offcanvas.getInstance(keyboardMenu);
-  keyboardMenuBS.hide();
+  // Fix if keyboardMenuBS is null because next command errors out if so
+  if (keyboardMenuBS != null) {
+    keyboardMenuBS.hide();
+  }
   // reenables all the toggles - Devin
   var toggles = document.querySelectorAll(".switch input");
   for (let i of toggles) {
