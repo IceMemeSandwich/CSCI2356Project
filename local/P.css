@@ -107,6 +107,8 @@ table#bigBoy {
 
 body {
   background-color: rgb(0, 0, 34);
+  /* Cheeky way of making word bank fit well - Devin */
+  zoom: 90%;
 }
 
 .navbar {
