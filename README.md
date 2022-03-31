@@ -29,10 +29,10 @@
       in one of the two uppercase or lowercase modes.
 - [x] C-12: Once a key is clicked, the effect of the shift key is terminated.
 - [x] C-13: A caps-lock toggle key shall be present.
-- [ ] C-14: The keyboard shall contain a word bank area.
-- [ ] C-15: The client shall be able to enter a word or phrase into the word
+- [x] C-14: The keyboard shall contain a word bank area.
+- [x] C-15: The client shall be able to enter a word or phrase into the word
       bank by typing it out.
-- [ ] C-16: Every word or phrase in the word bank is visible to the user at
+- [x] C-16: Every word or phrase in the word bank is visible to the user at
       the same time.
 - [x] C-17: The colour scheme shall have a Montreal Canadians theme.
 - [x] C-19: <s>P1 shall be modified so that when an edit toggle is
