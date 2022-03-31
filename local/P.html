@@ -119,11 +119,11 @@
             </label>
           </td>
       </tr>
+      <!-- edit area -->
       <tr class="center">
         <td colspan="5" id="editArea" style="display:none;">
           <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
           <button type="button" class="btn btn-primary" id="saveBtnTop" style="font-size:2em" style ="vertical-align: middle;" onclick="saveTextBox()">Save</button>
-          <!-- Closes menu (for now) -->
           <button type="button" class="btn btn-secondary" id="cancelBtnTop" style="font-size:2em" onclick="closeEdit()">Close</button>
           <button type="button" class="btn btn-danger" id="clearBtnTop" style="font-size:2em" onclick="errorBox('Are you sure you want to delete all your work?' , clearLocalCopy)">Clear</button>
           <button type="button" class="btn btn-primary"  style="font-size:2em" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
@@ -144,6 +144,18 @@
             <i class="bi bi-keyboard"></i>
           </button> 
         </div>
+        <div>
+            <div class="input-group mb-3">
+              <h1 style="color: white;">Word Bank:</h1>
+              <textarea rows="1"cols="10" id="wordBankEntry"></textarea>
+              <a data-role="button" class="btn btn-secondary normal rounded-0" onclick="wordStore()"><i class="bi bi-star"></i></a>
+            </div>
+            <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons" id="wordBankStorage" style="visibility:visible">
+              <!--<button type="button" class="btn btn-primary">a</button>
+              <button type="button" class="btn btn-primary">b</button>
+              <button type="button" class="btn btn-primary">c</button>-->
+            </div>
+          </div>
       </td>
       </tr>
     </table>
@@ -259,16 +271,6 @@
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="qmarkBtn" onclick="addChar('qmarkBtn')">?</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="commaBtn" onclick="addChar('commaBtn')">,</a>
               
-            </div>
-
-            <div class="input-group mb-3">
-              <a data-role="button" class="btn btn-secondary pig rounded-0" onclick="console.log('Push')">Word<i class="bi bi-piggy-bank"></i></a>
-              <textarea rows="1"cols="10"></textarea>
-              <a data-role="button" class="btn btn-secondary normal rounded-0" onclick="console.log('Push')"><i class="bi bi-star"></i></a>
-
-              <a data-role="button" class="btn btn-secondary pig rounded-0" onclick="console.log('Push')">Word<i class="bi bi-piggy-bank"></i></a>
-              <textarea rows="1"cols="10"></textarea>
-              <a data-role="button" class="btn btn-secondary normal rounded-0" onclick="console.log('Push')"><i class="bi bi-star"></i></a>
             </div>
           </td>
         </tr>
