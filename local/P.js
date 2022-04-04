@@ -295,11 +295,12 @@ function wordStore() {
   let myDiv = document.getElementById("wordBankStorage");
   let removeButton = document.createElement("button");
   wordBankCount++;
+  let wordId = "word" + wordBankCount;
   newWordButton.innerHTML = wordEntered;
   removeButton.innerHTML = <i class="bi bi-file-x"></i>
   newWordButton.type = "button";
   removeButton.type = "button";
-  newWordButton.id = "word" + wordBankCount;
+  newWordButton.id = wordId;
   newWordButton.classList.add("btn");
   newWordButton.classList.add("btn-primary");
   removeButton.classList.add("btn");
@@ -309,7 +310,7 @@ function wordStore() {
     $("#textInputBox").val(currChars.concat(wordEntered));
   }
   removeButton.onclick = function() {
-    document.getElementById("word" + wordBankCount).remove();
+    document.getElementById(wordId).remove();
   }
   myDiv.appendChild(newWordButton);
   myDiv.appendChild(removeButton);
