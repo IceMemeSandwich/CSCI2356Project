@@ -312,9 +312,14 @@ function wordStore() {
     $("#textInputBox").val(currChars.concat(wordEntered));
   }
   removeButton.onclick = function() {
-    document.getElementById(wordId).remove();
-    document.getElementById(removeWordId).remove();
-
+    let confirmationCheck = confirm("Are you sure you want to remove this word?");
+    if (confirmationCheck == true) {
+      let confirmationCheck2 = confirm("Are you positive?");
+      if (confirmationCheck2 == true) {
+        document.getElementById(wordId).remove();
+        document.getElementById(removeWordId).remove();
+      }
+    }
   }
   myDiv.appendChild(newWordButton);
   myDiv.appendChild(removeButton);
