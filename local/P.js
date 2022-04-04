@@ -11,6 +11,7 @@ var capsPressed = false;
 var capsLockOn = false;
 var count = 0;
 var onlinePosts = {};
+var wordBankCount = 0;
 
 function setup() {
   $.get(SERVER_URL + "/receive", receive).fail(errorCallback1);
@@ -292,15 +293,31 @@ function wordStore() {
   let wordEntered = $("#wordBankEntry").val();
   let newWordButton = document.createElement("button");
   let myDiv = document.getElementById("wordBankStorage");
+  let removeButton = document.createElement("button");
+  wordBankCount++;
+  let wordId = "word" + wordBankCount;
+  let removeWordId = "removeWord" + wordBankCount;
   newWordButton.innerHTML = wordEntered;
+  removeButton.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
   newWordButton.type = "button";
+  removeButton.type = "button";
+  newWordButton.id = wordId;
+  removeButton.id = removeWordId;
   newWordButton.classList.add("btn");
   newWordButton.classList.add("btn-primary");
+  removeButton.classList.add("btn");
+  removeButton.classList.add("btn-primary");
   newWordButton.onclick = function() {
     let currChars = $("#textInputBox").val();
     $("#textInputBox").val(currChars.concat(wordEntered));
   }
+  removeButton.onclick = function() {
+    document.getElementById(wordId).remove();
+    document.getElementById(removeWordId).remove();
+
+  }
   myDiv.appendChild(newWordButton);
+  myDiv.appendChild(removeButton);
 }
 
 // Writing anything after this function will not work (for what reason i have no clue)
