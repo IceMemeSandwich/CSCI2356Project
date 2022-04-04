@@ -296,11 +296,13 @@ function wordStore() {
   let removeButton = document.createElement("button");
   wordBankCount++;
   let wordId = "word" + wordBankCount;
+  let removeWordId = "removeWord" + wordBankCount;
   newWordButton.innerHTML = wordEntered;
-  removeButton.innerHTML = <i class="bi bi-file-x"></i>
+  removeButton.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
   newWordButton.type = "button";
   removeButton.type = "button";
   newWordButton.id = wordId;
+  removeButton.id = removeWordId;
   newWordButton.classList.add("btn");
   newWordButton.classList.add("btn-primary");
   removeButton.classList.add("btn");
@@ -311,6 +313,8 @@ function wordStore() {
   }
   removeButton.onclick = function() {
     document.getElementById(wordId).remove();
+    document.getElementById(removeWordId).remove();
+
   }
   myDiv.appendChild(newWordButton);
   myDiv.appendChild(removeButton);
