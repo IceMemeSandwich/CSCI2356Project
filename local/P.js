@@ -72,21 +72,49 @@ function setup() {
     }
   });
 
-// publish switches
+ // publish switches
+// Connor M. and Devin R.
 
   $("#publish1").on("change", function (event) {
     // @ts-ignore
-    errorBox("Are you sure that you want to publish #1?",publish,1);
+    switch (event.target.checked) {
+      case false:
+        break;
+      case true:
+        let publishCheck = confirm("Are you sure that you want to publish #1?");
+        if (publishCheck == false) {
+          $("#publish1").attr("checked", false);
+        }
+        break;
+    }
   });
 
   $("#publish2").on("change", function (event) {
     // @ts-ignore
-    errorBox("Are you sure that you want to publish #2?",publish,2);
+    switch (event.target.checked) {
+      case false:
+        break;
+      case true:
+        let publishCheck = confirm("Are you sure that you want to publish #2?");
+        if (publishCheck == false) {
+          $("#publish2").attr("checked", false);
+        }
+        break;
+    }
   });
 
   $("#publish3").on("change", function (event) {
     // @ts-ignore
-    errorBox("Are you sure that you want to publish #1?",publish,3);
+    switch (event.target.checked) {
+      case false:
+        break;
+      case true:
+        let publishCheck = confirm("Are you sure that you want to publish #3?");
+        if (publishCheck == false) {
+          $("#publish3").attr("checked", false);
+        }
+        break;
+    }
   });
 
 
