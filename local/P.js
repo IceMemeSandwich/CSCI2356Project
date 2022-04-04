@@ -284,6 +284,10 @@ function toCaps() {
   }
 }
 
+/**
+ * Function to store the word bank entries
+ * Connor M.
+ */
 function wordStore() {
   let wordEntered = $("#wordBankEntry").val();
   let newWordButton = document.createElement("button");
