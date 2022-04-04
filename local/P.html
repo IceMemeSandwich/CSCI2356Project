@@ -3,12 +3,12 @@
 <!--
     Authors: Chris Churchill (A00445246), Matt Audas (A00443042)
              Devin Robar (A00446150), Connor MacNeil (A00445228)
-    
+
 -->
 
 <html>
   <head>
-   
+
     <title>Michael's Blog</title>
 
     <meta charset="utf-8">
@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <!-- Gets jquery from google so you don't have to have a local copy -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <!-- Getting fonts from google fonts for use -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="P.css">
     <script src="./P.js"></script>
     <!-- Import keyboard json -->
@@ -48,9 +52,9 @@
         </li>
       </div>
     </nav>
-      
+
       <!-- By Chris Churchill and Matt Audas-->
-      
+
     <div style="padding-top: 20px;">
     <table id="bigBoy">
       <tr style="color:white;">
@@ -61,7 +65,7 @@
       <!-- first blog row  -->
       <tr>
           <td style="font-size: 20px">
-            <p style="color:white" id="blog1">1</p>      
+            <p style="color:white" id="blog1">1</p>
           </td>
 
           <td>
@@ -70,7 +74,7 @@
               <span class="slider round"></span>
             </label>
           </td>
-          
+
           <td>
             <label class="switch">
               <input type="checkbox" id="publish1">
@@ -81,7 +85,7 @@
       <!-- second blog row -->
       <tr>
         <td style="font-size: 20x">
-          <p style="color:white" id="blog2">2</p>     
+          <p style="color:white" id="blog2">2</p>
         </td>
 
         <td>
@@ -90,7 +94,7 @@
             <span class="slider round"></span>
           </label>
         </td>
-        
+
         <td>
           <label class="switch">
             <input type="checkbox" id="publish2">
@@ -102,7 +106,7 @@
       <tr>
         <tr>
           <td style="font-size: 20px">
-            <p style="color:white" id="blog3">3</p>      
+            <p style="color:white" id="blog3">3</p>
           </td>
 
           <td>
@@ -111,7 +115,7 @@
               <span class="slider round"></span>
             </label>
           </td>
-          
+
           <td>
             <label class="switch">
               <input type="checkbox" id="publish3">
@@ -135,14 +139,14 @@
           <textarea id="textInputBox"  rows="8" cols="60" placeholder="Put Text Here!"></textarea>
         </div>
 
-       
+
         <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
           <button type="button" class="btn btn-primary" id="saveBtnBottom" style="font-size:2em" onclick="saveTextBox()">Save</button>
           <button type="button" class="btn btn-secondary" id="cancelBtnBottom" style="font-size:2em" onclick="closeEdit()">Close</button>
           <button type="button" class="btn btn-danger" id="clearBtnBottom" style="font-size:2em" onclick="errorBox('Are you sure you want to delete all your work?' , clearLocalCopy)">Clear</button>
           <button type="button" class="btn btn-primary" data-toggle="button" style="font-size:2em "aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
             <i class="bi bi-keyboard"></i>
-          </button> 
+          </button>
         </div>
         <div>
             <div class="input-group mb-3">
@@ -198,7 +202,7 @@
 
     <!-- keyboard (in an offcanvas way)-->
     <!-- Done by Devin R. (Besides the keyboard itself) -->
-    <div class="offcanvas offcanvas-bottom keyboardMenu" tabindex="-1" 
+    <div class="offcanvas offcanvas-bottom keyboardMenu" tabindex="-1"
       id="keyboardMenu" aria-labelledby="keyboardMenu" data-bs-backdrop="false">
       <table style="text-align: center">
         <tr>
@@ -222,7 +226,7 @@
               </a>
             </a>
             </div>
-          
+
             <div style="margin-bottom: 15px">
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="qBtn" onclick="addChar('qBtn')">q</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="wBtn" onclick="addChar('wBtn')">w</a>&nbsp;&nbsp;&nbsp;
@@ -240,7 +244,7 @@
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardWideBtn" id="capsLockBtn">
                 <i class="bi bi-capslock"></i></a>&nbsp;&nbsp;&nbsp;
             </div>
-            
+
             <div style="margin-bottom: 15px">
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="aBtn" onclick="addChar('aBtn')">a</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="sBtn" onclick="addChar('sBtn')">s</a>&nbsp;&nbsp;&nbsp;
@@ -256,9 +260,9 @@
               </a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="quoteBtn" onclick='addChar("quoteBtn")'>'</a>
             </div>
-            
+
             <div style="margin-bottom: 15px">
-              
+
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="zBtn" onclick="addChar('zBtn')">z</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="xBtn" onclick="addChar('xBtn')">x</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="cBtn" onclick="addChar('cBtn')">c</a>&nbsp;&nbsp;&nbsp;
@@ -270,12 +274,12 @@
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="dotBtn" onclick="addChar('dotBtn')">.</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="qmarkBtn" onclick="addChar('qmarkBtn')">?</a>&nbsp;&nbsp;&nbsp;
               <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="commaBtn" onclick="addChar('commaBtn')">,</a>
-              
+
             </div>
           </td>
         </tr>
       </table>
-      
+
     </div>
 </body>
 </html>
