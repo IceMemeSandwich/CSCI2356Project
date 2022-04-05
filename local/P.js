@@ -78,44 +78,17 @@ function setup() {
 
   $("#publish1").on("change", function (event) {
     // @ts-ignore
-    switch (event.target.checked) {
-      case false:
-        break;
-      case true:
-        let publishCheck = confirm("Are you sure that you want to publish #1?");
-        if (publishCheck == false) {
-          $("#publish1").attr("checked", false);
-        }
-        break;
-    }
+    errorBox("Are you sure that you want to publish #1?",publish,1);
   });
 
   $("#publish2").on("change", function (event) {
     // @ts-ignore
-    switch (event.target.checked) {
-      case false:
-        break;
-      case true:
-        let publishCheck = confirm("Are you sure that you want to publish #2?");
-        if (publishCheck == false) {
-          $("#publish2").attr("checked", false);
-        }
-        break;
-    }
+    errorBox("Are you sure that you want to publish #1?",publish,2);
   });
 
   $("#publish3").on("change", function (event) {
     // @ts-ignore
-    switch (event.target.checked) {
-      case false:
-        break;
-      case true:
-        let publishCheck = confirm("Are you sure that you want to publish #3?");
-        if (publishCheck == false) {
-          $("#publish3").attr("checked", false);
-        }
-        break;
-    }
+    errorBox("Are you sure that you want to publish #1?",publish,3);
   });
 
 
