@@ -15,9 +15,7 @@ var wordBankCount = 0;
 
 function setup() {
 
-  for (let i = 1; i <= 3; i++) {
-    $.get(SERVER_URL + "/receive/" + i.toString(), receive).fail(errorCallback1);
-  };
+  $.get(SERVER_URL + "/receive", receive).fail(errorCallback1);
 
   // @ts-ignore
   let toggles = document.querySelectorAll(".switch input");
