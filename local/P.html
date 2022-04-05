@@ -3,7 +3,6 @@
 <!--
     Authors: Chris Churchill (A00445246), Matt Audas (A00443042)
              Devin Robar (A00446150), Connor MacNeil (A00445228)
-
 -->
 
 <html>
@@ -35,9 +34,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          The Best Webpage in The Universe!
-        </a>
+        <a class="navbar-brand" href="#">The Best Webpage in The Universe!</a>
         <!-- Profile Menu -->
         <li class="nav-item dropdown list-unstyled">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,7 +50,7 @@
       </div>
     </nav>
 
-      <!-- By Chris Churchill and Matt Audas-->
+      <!-- By Chris Churchill and Matt Audas -->
 
     <div style="padding-top: 20px;">
     <table id="bigBoy">
@@ -126,7 +123,7 @@
       <!-- edit area -->
       <tr class="center">
         <td colspan="5" id="editArea" style="display:none;">
-          <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
+        <!--  <div class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
           <button type="button" class="btn btn-primary" id="saveBtnTop" style="font-size:2em" style ="vertical-align: middle;" onclick="saveTextBox()">Save</button>
           <button type="button" class="btn btn-secondary" id="cancelBtnTop" style="font-size:2em" onclick="closeEdit()">Close</button>
           <button type="button" class="btn btn-danger" id="clearBtnTop" style="font-size:2em" onclick="errorBox('Are you sure you want to delete all your work?' , clearLocalCopy)">Clear</button>
@@ -134,25 +131,39 @@
             <i class="bi bi-keyboard"></i>
           </button>
         </div>
-
+      -->
         <div>
-          <textarea id="textInputBox"  rows="8" cols="60" placeholder="Put Text Here!"></textarea>
+          <textarea id="textInputBox"  rows="4" cols="60" placeholder="Put Text Here!"></textarea>
         </div>
 
 
-        <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
+        <!-- <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons">
           <button type="button" class="btn btn-primary" id="saveBtnBottom" style="font-size:2em" onclick="saveTextBox()">Save</button>
           <button type="button" class="btn btn-secondary" id="cancelBtnBottom" style="font-size:2em" onclick="closeEdit()">Close</button>
           <button type="button" class="btn btn-danger" id="clearBtnBottom" style="font-size:2em" onclick="errorBox('Are you sure you want to delete all your work?' , clearLocalCopy)">Clear</button>
           <button type="button" class="btn btn-primary" data-toggle="button" style="font-size:2em "aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
             <i class="bi bi-keyboard"></i>
           </button>
-        </div>
+        </div> -->
+
         <div>
             <div class="input-group mb-3">
-              <h1 style="color: white;">Word Bank:</h1>
+              <h1 style="color: white; font-size:1.4em;">Word Bank:</h1>
               <textarea rows="1"cols="10" id="wordBankEntry"></textarea>
-              <a data-role="button" class="btn btn-secondary normal rounded-0" onclick="wordStore()"><i class="bi bi-star"></i></a>
+             <a data-role="button" class="btn btn-secondary rounded-0" onclick="wordStore()"><i class="bi bi-star"></i></a>
+            
+            
+             <div style="left:200px" class="btn-group" role="group" aria-label="Top Text Entry Buttons" style="padding-bottom: 6px;">
+              <button type="button" class="btn btn-primary otherBtn" id="saveBtnTop"  style ="vertical-align: middle;" onclick="saveTextBox()">Save</button>
+              <button type="button" class="btn btn-secondary otherBtn" id="cancelBtnTop" onclick="closeEdit()">Close</button>
+              <button type="button" class="btn btn-danger otherBtn" id="clearBtnTop"  onclick="errorBox('Are you sure you want to delete all your work?' , clearLocalCopy)">Clear</button>
+              <button type="button" class="btn btn-primary otherBtn" data-toggle="button" aria-pressed="false" autocomplete="off" data-bs-toggle="offcanvas" data-bs-target="#keyboardMenu">
+                <i class="bi bi-keyboard"></i>
+              </button>
+            </div>
+            
+            
+            
             </div>
             <div class="btn-group" role="group" aria-label="Bottom Text Entry Buttons" id="wordBankStorage" style="visibility:visible">
               <!--<button type="button" class="btn btn-primary">a</button>
@@ -206,74 +217,74 @@
       id="keyboardMenu" aria-labelledby="keyboardMenu" data-bs-backdrop="false">
       <table style="text-align: center">
         <tr>
-          <td> <!-- keyboard by Devin, Chris, Matt-->
+          <td> <!-- keyboard design by Devin, Chris, Matt-->
             <div style="margin-bottom: 15px">
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="oneBtn" onclick="addChar('oneBtn')">1</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="twoBtn" onclick="addChar('twoBtn')">2</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="threeBtn" onclick="addChar('threeBtn')">3</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="fourBtn" onclick="addChar('fourBtn')">4</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="fiveBtn" onclick="addChar('fiveBtn')">5</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="sixBtn" onclick="addChar('sixBtn')">6</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="sevenBtn" onclick="addChar('sevenBtn')">7</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="eightBtn" onclick="addChar('eightBtn')">8</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="nineBtn" onclick="addChar('nineBtn')">9</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="zeroBtn" onclick="addChar('zeroBtn')">0</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardWideBtn" id="capsBtn" onclick="toCaps()">
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="oneBtn" onclick="addChar('oneBtn')">1</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="twoBtn" onclick="addChar('twoBtn')">2</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="threeBtn" onclick="addChar('threeBtn')">3</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="fourBtn" onclick="addChar('fourBtn')">4</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="fiveBtn" onclick="addChar('fiveBtn')">5</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="sixBtn" onclick="addChar('sixBtn')">6</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="sevenBtn" onclick="addChar('sevenBtn')">7</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="eightBtn" onclick="addChar('eightBtn')">8</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="nineBtn" onclick="addChar('nineBtn')">9</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="zeroBtn" onclick="addChar('zeroBtn')">0</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardWideBtn" id="capsBtn" onclick="toCaps()">
                 <i class="bi bi-shift"></i>
               </a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardWideBtn" id="undoBtn" onclick="addChar('undo')">
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardWideBtn" id="undoBtn" onclick="addChar('undo')">
                 <i class="bi bi-arrow-counterclockwise"></i>
               </a>
             </a>
             </div>
 
             <div style="margin-bottom: 15px">
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="qBtn" onclick="addChar('qBtn')">q</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="wBtn" onclick="addChar('wBtn')">w</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="eBtn" onclick="addChar('eBtn')">e</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="rBtn" onclick="addChar('rBtn')">r</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="tBtn" onclick="addChar('tBtn')">t</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="yBtn" onclick="addChar('yBtn')">y</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="uBtn" onclick="addChar('uBtn')">u</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="iBtn" onclick="addChar('iBtn')">i</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="oBtn" onclick="addChar('oBtn')">o</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="pBtn" onclick="addChar('pBtn')">p</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardWideBtn" id="backBtn" onclick="addChar('bksp')">
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="qBtn" onclick="addChar('qBtn')">q</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="wBtn" onclick="addChar('wBtn')">w</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="eBtn" onclick="addChar('eBtn')">e</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="rBtn" onclick="addChar('rBtn')">r</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="tBtn" onclick="addChar('tBtn')">t</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="yBtn" onclick="addChar('yBtn')">y</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="uBtn" onclick="addChar('uBtn')">u</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="iBtn" onclick="addChar('iBtn')">i</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="oBtn" onclick="addChar('oBtn')">o</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="pBtn" onclick="addChar('pBtn')">p</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardWideBtn" id="backBtn" onclick="addChar('bksp')">
                 <i class="bi bi-backspace"></i>
               </a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardWideBtn" id="capsLockBtn">
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardWideBtn" id="capsLockBtn">
                 <i class="bi bi-capslock"></i></a>&nbsp;&nbsp;&nbsp;
             </div>
 
             <div style="margin-bottom: 15px">
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="aBtn" onclick="addChar('aBtn')">a</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="sBtn" onclick="addChar('sBtn')">s</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="dBtn" onclick="addChar('dBtn')">d</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="fBtn" onclick="addChar('fBtn')">f</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="gBtn" onclick="addChar('gBtn')">g</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="hBtn" onclick="addChar('hBtn')">h</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="jBtn" onclick="addChar('jBtn')">j</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="kBtn" onclick="addChar('kBtn')">k</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="lBtn" onclick="addChar('lBtn')">l</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardWideBtn" id="enterBtn" onclick="addChar('enter')">
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="aBtn" onclick="addChar('aBtn')">a</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="sBtn" onclick="addChar('sBtn')">s</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="dBtn" onclick="addChar('dBtn')">d</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="fBtn" onclick="addChar('fBtn')">f</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="gBtn" onclick="addChar('gBtn')">g</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="hBtn" onclick="addChar('hBtn')">h</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="jBtn" onclick="addChar('jBtn')">j</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="kBtn" onclick="addChar('kBtn')">k</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="lBtn" onclick="addChar('lBtn')">l</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardWideBtn" id="enterBtn" onclick="addChar('enter')">
                 <i class="bi bi-arrow-return-left"></i>
               </a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="quoteBtn" onclick='addChar("quoteBtn")'>'</a>
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="quoteBtn" onclick='addChar("quoteBtn")'>'</a>
             </div>
 
             <div style="margin-bottom: 15px">
 
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="zBtn" onclick="addChar('zBtn')">z</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="xBtn" onclick="addChar('xBtn')">x</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="cBtn" onclick="addChar('cBtn')">c</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="vBtn" onclick="addChar('vBtn')">v</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="bBtn" onclick="addChar('bBtn')">b</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="nBtn" onclick="addChar('nBtn')">n</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="mBtn" onclick="addChar('mBtn')">m</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardWideBtn" id="spaceBtn" onclick="addChar('space')">Space</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="dotBtn" onclick="addChar('dotBtn')">.</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="qmarkBtn" onclick="addChar('qmarkBtn')">?</a>&nbsp;&nbsp;&nbsp;
-              <a data-role="button" style="font-size:2em" class="btn keyboardButton keyboardNormalBtn" id="commaBtn" onclick="addChar('commaBtn')">,</a>
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="zBtn" onclick="addChar('zBtn')">z</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="xBtn" onclick="addChar('xBtn')">x</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="cBtn" onclick="addChar('cBtn')">c</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="vBtn" onclick="addChar('vBtn')">v</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="bBtn" onclick="addChar('bBtn')">b</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="nBtn" onclick="addChar('nBtn')">n</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="mBtn" onclick="addChar('mBtn')">m</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardWideBtn" id="spaceBtn" onclick="addChar('space')">Space</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="dotBtn" onclick="addChar('dotBtn')">.</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="qmarkBtn" onclick="addChar('qmarkBtn')">?</a>&nbsp;&nbsp;&nbsp;
+              <a data-role="button" style="font-size:1.4em" class="btn keyboardButton keyboardNormalBtn" id="commaBtn" onclick="addChar('commaBtn')">,</a>
 
             </div>
           </td>
