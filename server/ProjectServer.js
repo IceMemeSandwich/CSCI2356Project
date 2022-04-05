@@ -1,10 +1,11 @@
 /**
  * Connor MacNeil, Devin Robar
- * A00445228
+ * A00445228, A00446150
  * 
  */
 
- const express = require("express"); // start express application
+ const express = require("express"); // call express application
+ let mysql = require("mysql"); // call mysql application
  const app = express(); // define top level function
  const port = 3111;
  
