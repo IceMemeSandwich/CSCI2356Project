@@ -1,4 +1,4 @@
-/*  By Chris Churchill and Matt Audas */
+/*  By Devin Robar, Chris Churchill, and Matt Audas */
 
 .large {
   width: 150px;
@@ -118,6 +118,7 @@ body {
 
 .keyboardMenu {
   background-color: rgb(50, 50, 78);
+  height: 35%;
 }
 
 .keyboardButton {
@@ -134,8 +135,8 @@ body {
 .keyboardNormalBtn {
   /* a = opacity */
   background-color: rgba(255, 255, 255, 0.2);
-  height: 60px;
-  width: 75px;
+  height: 45px;
+  width: 55px;
 }
 
 .keyboardNormalBtn:hover {
@@ -148,9 +149,14 @@ body {
   transform: scale(2);
 }
 
+.otherBtn {
+  height: 40px;
+  width: 99px;
+}
+
 .keyboardWideBtn {
-  height: 60px;
-  width: 119px;
+  height: 40px;
+  width: 99px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 
