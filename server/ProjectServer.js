@@ -1,14 +1,14 @@
 /**
  * Connor MacNeil, Devin Robar
  * A00445228, A00446150
- * 
+ *
  */
 
  const express = require("express"); // call express application
- let mysql = require("mysql"); // call mysql application
+ let mysql = require("mysql2"); // call mysql application
  const app = express(); // define top level function
  const port = 3111;
- 
+
 // Connecting to the database (I'l put mine in for now)
 // had to run this command on mysql server to get it working
 let database = mysql.createConnection({
@@ -19,7 +19,7 @@ database: "d_robar",
 connectTimeout: 10000,
 });
 database.connect();
- 
+
 // These are the commands that are used to make the tables that will be used
 // CREATE TABLE Posts(
 //    id INT PRIMARY KEY,
