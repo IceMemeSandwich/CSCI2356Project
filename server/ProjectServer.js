@@ -61,6 +61,7 @@ function updateServer() {
       };
     }
   );
+};
 updateServer()
 
 // These are the commands that are used to make the tables that will be used
