@@ -9,6 +9,24 @@
  const app = express(); // define top level function
  const port = 3111;
 
+var posts = {
+    '1':{
+       "title":"",
+       "post":"",
+       "posted": false
+    },
+    '2':{
+       "title":"",
+       "post":"",
+       "posted": false
+    },
+    '3':{
+       "title":"",
+       "post":"",
+       "posted": false
+    }
+ };
+
 // Connecting to the database (I'l put mine in for now)
 // had to run this command on mysql server to get it working
 let database = mysql.createConnection({
@@ -19,6 +37,29 @@ database: "d_robar",
 connectTimeout: 10000,
 });
 database.connect();
+
+//When the server starts, request the posts and put them in the posts var
+// both to avoid changing some code and to make it somewhat more secure
+// - Devin R.
+database.query(
+  "SELECT * FROM Posts;",
+  function (err, res) {
+    if (err) throw err;
+    else {
+      for (let i = 0; i <= res.length; i++) {
+        if (res[i] != undefined) {
+          posts[res[i].id]["title"] = res[i].title;
+          posts[res[i].id]["post"] = res[i].post;
+          if (res[i].isPosted == 1) {
+            posts[res[i].id]["posted"] = true;
+          } else {
+            posts[res[i].id]["posted"] = false
+          }
+        };
+      };
+    };
+  }
+);
 
 // These are the commands that are used to make the tables that will be used
 // CREATE TABLE Posts(
@@ -46,20 +87,10 @@ let allowCrossDomain = function (req, res, next) {
 app.use(allowCrossDomain); // implement allowable domain characteristics
 
 // setting input boxes at page load
-app.get("/receive/:id", function (req, res) {
-    console.log(req.params.id);
-    database.query(
-      "SELECT * FROM Posts WHERE id=?;",
-      [request.params.id],
-
-      function (err, res) {
-        if (err)
-          console.log(
-            "An error has been thrown while searching for your record."
-          );
-        return res.status(200).send(req.params.id);
-      }
-    );
+app.get("/receive", function (req, res) {
+    console.log(req.url);
+    console.log(posts);
+    return res.status(200).send(posts);
   });
 
 // template of receiving:
