@@ -41,25 +41,27 @@ database.connect();
 //When the server starts, request the posts and put them in the posts var
 // both to avoid changing some code and to make it somewhat more secure
 // - Devin R.
-database.query(
-  "SELECT * FROM Posts;",
-  function (err, res) {
-    if (err) throw err;
-    else {
-      for (let i = 0; i <= res.length; i++) {
-        if (res[i] != undefined) {
-          posts[res[i].id]["title"] = res[i].title;
-          posts[res[i].id]["post"] = res[i].post;
-          if (res[i].isPosted == 1) {
-            posts[res[i].id]["posted"] = true;
-          } else {
-            posts[res[i].id]["posted"] = false
-          }
+function updateServer() {
+  database.query(
+    "SELECT * FROM Posts;",
+    function (err, res) {
+      if (err) throw err;
+      else {
+        for (let i = 0; i <= res.length; i++) {
+          if (res[i] != undefined) {
+            posts[res[i].id]["title"] = res[i].title;
+            posts[res[i].id]["post"] = res[i].post;
+            if (res[i].isPosted == 1) {
+              posts[res[i].id]["posted"] = true;
+            } else {
+              posts[res[i].id]["posted"] = false
+            }
+          };
         };
       };
-    };
-  }
-);
+    }
+  );
+updateServer()
 
 // These are the commands that are used to make the tables that will be used
 // CREATE TABLE Posts(
@@ -88,9 +90,10 @@ app.use(allowCrossDomain); // implement allowable domain characteristics
 
 // setting input boxes at page load
 app.get("/receive", function (req, res) {
-    console.log(req.url);
-    console.log(posts);
-    return res.status(200).send(posts);
+  updateServer();
+  console.log(req.url);
+  console.log(posts);
+  return res.status(200).send(posts);
   });
 
 // template of receiving:
