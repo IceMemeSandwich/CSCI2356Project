@@ -14,6 +14,7 @@ var onlinePosts = {};
 var wordBankCount = 0;
 
 function setup() {
+
   $.get(SERVER_URL + "/receive", receive).fail(errorCallback1);
 
   // @ts-ignore
@@ -79,12 +80,10 @@ function setup() {
     // @ts-ignore
     switch (event.target.checked) {
       case false:
+        errorBox("Are you sure that you want to unpublish #1?",publish,1);
         break;
       case true:
-        let publishCheck = confirm("Are you sure that you want to publish #1?");
-        if (publishCheck == false) {
-          $("#publish1").attr("checked", false);
-        }
+        errorBox("Are you sure that you want to publish #1?",publish,1);
         break;
     }
   });
@@ -93,12 +92,10 @@ function setup() {
     // @ts-ignore
     switch (event.target.checked) {
       case false:
+        errorBox("Are you sure that you want to unpublish #2?",publish,2);
         break;
       case true:
-        let publishCheck = confirm("Are you sure that you want to publish #2?");
-        if (publishCheck == false) {
-          $("#publish2").attr("checked", false);
-        }
+        errorBox("Are you sure that you want to publish #2?",publish,2);
         break;
     }
   });
@@ -107,12 +104,10 @@ function setup() {
     // @ts-ignore
     switch (event.target.checked) {
       case false:
+        errorBox("Are you sure that you want to unpublish #3?",publish,3);
         break;
       case true:
-        let publishCheck = confirm("Are you sure that you want to publish #3?");
-        if (publishCheck == false) {
-          $("#publish3").attr("checked", false);
-        }
+        errorBox("Are you sure that you want to publish #3?",publish,3);
         break;
     }
   });
@@ -255,9 +250,12 @@ function errorBox(message, func, param = null) {
   document.getElementById('errorBox-body').innerHTML = message;
   // @ts-ignore
   $('#errorBox').modal("show");
+  $('.modal-backdrop').removeClass("modal-backdrop"); 
   $("#errorBoxYesBtn").on("click", function () {
     $('#errorBox').modal("hide");
     $('#areYouSureBox').modal("show");
+    // Removes backdrop
+    $('.modal-backdrop').removeClass("modal-backdrop"); 
     $("#areYouSureBoxYesBtn").on("click", function () {
       // @ts-ignore
       $('#areYouSureBox').modal('hide');
