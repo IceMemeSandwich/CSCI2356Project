@@ -12,6 +12,9 @@ var capsLockOn = false;
 var count = 0;
 var onlinePosts = {};
 var wordBankCount = 0;
+var wordBankEntries = [];
+var wordBankCharacterCount = 0;
+var wordBankCharacterCap = 100;
 
 function setup() {
 
@@ -317,38 +320,51 @@ function toCaps() {
  */
 function wordStore() {
   let wordEntered = $("#wordBankEntry").val();
-  let newWordButton = document.createElement("button");
-  let myDiv = document.getElementById("wordBankStorage");
-  let removeButton = document.createElement("button");
-  wordBankCount++;
-  let wordId = "word" + wordBankCount;
-  let removeWordId = "removeWord" + wordBankCount;
-  newWordButton.innerHTML = wordEntered;
-  removeButton.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
-  newWordButton.type = "button";
-  removeButton.type = "button";
-  newWordButton.id = wordId;
-  removeButton.id = removeWordId;
-  newWordButton.classList.add("btn");
-  newWordButton.classList.add("btn-primary");
-  removeButton.classList.add("btn");
-  removeButton.classList.add("btn-primary");
-  newWordButton.onclick = function() {
-    let currChars = $("#textInputBox").val();
-    $("#textInputBox").val(currChars.concat(wordEntered));
-  }
-  removeButton.onclick = function() {
-    let confirmationCheck = confirm("Are you sure you want to remove this word?");
-    if (confirmationCheck == true) {
-      let confirmationCheck2 = confirm("Are you positive?");
-      if (confirmationCheck2 == true) {
-        document.getElementById(wordId).remove();
-        document.getElementById(removeWordId).remove();
+  if (wordBankEntries.includes(wordEntered) == false) {
+    console.log(wordBankCharacterCount);
+    wordBankCharacterCount += wordEntered.length;
+    console.log(wordBankCharacterCount);
+    wordBankEntries.push(wordEntered);
+    console.log(wordBankEntries);
+    let newWordButton = document.createElement("button");
+    let myDiv = document.getElementById("wordBankStorage");
+    let removeButton = document.createElement("button");
+    wordBankCount++;
+    let wordId = "word" + wordBankCount;
+    let removeWordId = "removeWord" + wordBankCount;
+    newWordButton.innerHTML = wordEntered;
+    removeButton.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
+    newWordButton.type = "button";
+    removeButton.type = "button";
+    newWordButton.id = wordId;
+    removeButton.id = removeWordId;
+    newWordButton.classList.add("btn");
+    newWordButton.classList.add("btn-primary");
+    removeButton.classList.add("btn");
+    removeButton.classList.add("btn-primary");
+    newWordButton.onclick = function() {
+      let currChars = $("#textInputBox").val();
+      $("#textInputBox").val(currChars.concat(wordEntered));
+    }
+    removeButton.onclick = function() {
+      let confirmationCheck = confirm("Are you sure you want to remove this word?");
+      if (confirmationCheck == true) {
+        let confirmationCheck2 = confirm("Are you positive?");
+        if (confirmationCheck2 == true) {
+          document.getElementById(wordId).remove();
+          document.getElementById(removeWordId).remove();
+          wordBankEntries.splice(wordBankCount - 1, 1);
+          console.log(wordBankEntries);
+          wordBankCharacterCount -= wordEntered.length;
+          console.log(wordBankCharacterCount);
+        }
       }
     }
+    myDiv.appendChild(newWordButton);
+    myDiv.appendChild(removeButton);
+  } else {
+    alert("This word has already been entered");
   }
-  myDiv.appendChild(newWordButton);
-  myDiv.appendChild(removeButton);
 }
 
 // Writing anything after this function will not work (for what reason i have no clue)
