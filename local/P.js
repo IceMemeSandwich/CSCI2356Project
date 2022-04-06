@@ -78,17 +78,38 @@ function setup() {
 
   $("#publish1").on("change", function (event) {
     // @ts-ignore
-    errorBox("Are you sure that you want to publish #1?",publish,1);
+    switch (event.target.checked) {
+      case false:
+        errorBox("Are you sure that you want to unpublish #1?",publish,1);
+        break;
+      case true:
+        errorBox("Are you sure that you want to publish #1?",publish,1);
+        break;
+    }
   });
 
   $("#publish2").on("change", function (event) {
     // @ts-ignore
-    errorBox("Are you sure that you want to publish #1?",publish,2);
+    switch (event.target.checked) {
+      case false:
+        errorBox("Are you sure that you want to unpublish #2?",publish,2);
+        break;
+      case true:
+        errorBox("Are you sure that you want to publish #2?",publish,2);
+        break;
+    }
   });
 
   $("#publish3").on("change", function (event) {
     // @ts-ignore
-    errorBox("Are you sure that you want to publish #1?",publish,3);
+    switch (event.target.checked) {
+      case false:
+        errorBox("Are you sure that you want to unpublish #3?",publish,3);
+        break;
+      case true:
+        errorBox("Are you sure that you want to publish #3?",publish,3);
+        break;
+    }
   });
 
 
