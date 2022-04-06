@@ -110,12 +110,30 @@ app.post("/send", function (req, res) {
     switch (publish) {
       case true:
          posts[req.body.id]["posted"] = false;
+        // Updating the SQL Server
+         let query = 'UPDATE `Posts` SET isPosted = 0 WHERE id=?';
+         database.query(query, req.body.id, function(err) {
+          if(err) {
+            console.log(err.message);
+          } else {
+            updateServer();
+          }
+        });
+        
          break;
       case false:
          posts[req.body.id]["title"] = req.body.title;
          posts[req.body.id]["post"] = req.body.post;
          posts[req.body.id]["posted"] = true;
-         console.log("posts");
+         // Updating the SQL Server
+         let queryFull = 'UPDATE `Posts` SET isPosted = 1, title = ?, post = ? WHERE id=?';
+         database.query(queryFull, [req.body.title, req.body.post, req.body.id], function(err) {
+          if(err) {
+            console.log(err.message);
+          } else {
+            updateServer();
+          }
+        });
          break;
     }
     console.log(posts);
