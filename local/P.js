@@ -229,9 +229,12 @@ function errorBox(message, func, param = null) {
   document.getElementById('errorBox-body').innerHTML = message;
   // @ts-ignore
   $('#errorBox').modal("show");
+  $('.modal-backdrop').removeClass("modal-backdrop"); 
   $("#errorBoxYesBtn").on("click", function () {
     $('#errorBox').modal("hide");
     $('#areYouSureBox').modal("show");
+    // Removes backdrop
+    $('.modal-backdrop').removeClass("modal-backdrop"); 
     $("#areYouSureBoxYesBtn").on("click", function () {
       // @ts-ignore
       $('#areYouSureBox').modal('hide');
