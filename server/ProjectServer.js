@@ -4,10 +4,13 @@
  *
  */
 
- const express = require("express"); // call express application
- let mysql = require("mysql2"); // call mysql application
- const app = express(); // define top level function
- const port = 3111;
+const express = require("express"); // call express application
+const mysql = require("mysql2"); // call mysql application
+const app = express(); // define top level function
+const port = 3111;
+
+// ejs settings
+app.set('view engine', 'ejs');
 
 var posts = {
     '1':{
@@ -93,7 +96,6 @@ app.use(allowCrossDomain); // implement allowable domain characteristics
 app.get("/receive", function (req, res) {
   updateServer();
   console.log(req.url);
-  console.log(posts);
   return res.status(200).send(posts);
   });
 
@@ -136,9 +138,18 @@ app.post("/send", function (req, res) {
         });
          break;
     }
-    console.log(posts);
 });
 
+//Public side
+app.get('/post/:id', function(req, res) {
+  if (posts[req.params.id]["posted"] == false) {res.render('unposts')}
+  else {
+    res.render('posts', {
+      title: posts[req.params.id]["title"],
+      post: posts[req.params.id]["post"]
+    });
+  }
+});
 
 process.on("SIGTERM", function () {
   console.log("Shutting server down.");
