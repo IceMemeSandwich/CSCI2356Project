@@ -336,6 +336,7 @@ function wordStore() {
   newWordButton.onclick = function() {
     let currChars = $("#textInputBox").val();
     $("#textInputBox").val(currChars.concat(wordEntered));
+    $.post(SERVER_URL + "/sendword", wordEntered, callback1).fail(errorCallback1);
   }
   removeButton.onclick = function() {
     let confirmationCheck = confirm("Are you sure you want to remove this word?");
