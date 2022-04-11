@@ -317,6 +317,8 @@ function toCaps() {
  */
 function wordStore() {
   let wordEntered = $("#wordBankEntry").val();
+  // Upload to server
+  $.post(SERVER_URL + "/sendword", {"word": wordEntered}, callback1).fail(errorCallback1);
   let newWordButton = document.createElement("button");
   let myDiv = document.getElementById("wordBankStorage");
   let removeButton = document.createElement("button");
@@ -336,7 +338,6 @@ function wordStore() {
   newWordButton.onclick = function() {
     let currChars = $("#textInputBox").val();
     $("#textInputBox").val(currChars.concat(wordEntered));
-    $.post(SERVER_URL + "/sendword", wordEntered, callback1).fail(errorCallback1);
   }
   removeButton.onclick = function() {
     let confirmationCheck = confirm("Are you sure you want to remove this word?");
