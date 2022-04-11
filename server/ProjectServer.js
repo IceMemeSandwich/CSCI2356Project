@@ -140,6 +140,19 @@ app.post("/send", function (req, res) {
     }
 });
 
+app.post("/sendword", function (req, res) {
+  // The server already checks if it (the new word ) already exists - Devin R.
+  console.log(req.body.word);
+  let query = "INSERT INTO WordBank (word) VALUES (?)";
+         database.query(query, req.body.word, function(err) {
+          if(err) {
+            console.log(err.message);
+          } else {
+            updateServer();
+          }
+        });
+});
+
 //Public side
 app.get('/post/:id', function(req, res) {
   if (posts[req.params.id]["posted"] == false) {res.render('unposts')}
