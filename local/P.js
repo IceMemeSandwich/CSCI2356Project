@@ -15,7 +15,11 @@ var wordBankCount = 0;
 
 function setup() {
 
+  // getting posted posts - Devin R.
   $.get(SERVER_URL + "/receive", receive).fail(errorCallback1);
+  // getting wordBank words - Devin R.
+  $.get(SERVER_URL + "/receiveword", receiveWord).fail(errorCallback1);
+
 
   // @ts-ignore
   let toggles = document.querySelectorAll(".switch input");
@@ -228,6 +232,12 @@ function receive(posts) {
 
 }
 
+function receiveWord(words) {
+  for (let i = 1; i <= Object.keys(words).length; i++) {
+    wordStore(words[i])
+  }
+}
+
 function callback1(returnedData) {
   console.log(returnedData);
 }
@@ -315,10 +325,14 @@ function toCaps() {
  * Function to store the word bank entries
  * Connor M.
  */
-function wordStore() {
-  let wordEntered = $("#wordBankEntry").val();
-  // Upload to server
-  $.post(SERVER_URL + "/sendword", {"word": wordEntered}, callback1).fail(errorCallback1);
+function wordStore(wordEntered = null) {
+  // setting wordEntered as null so if nothing is sent to the function is will just use whats in the box
+  // just to be extra lazy - Devin R.
+  if (wordEntered == null) {
+    wordEntered = $("#wordBankEntry").val();
+    // Upload to server
+    $.post(SERVER_URL + "/sendword", {"word": wordEntered, "publish" : "true"}, callback1).fail(errorCallback1);
+  };
   let newWordButton = document.createElement("button");
   let myDiv = document.getElementById("wordBankStorage");
   let removeButton = document.createElement("button");
@@ -346,6 +360,7 @@ function wordStore() {
       if (confirmationCheck2 == true) {
         document.getElementById(wordId).remove();
         document.getElementById(removeWordId).remove();
+        $.post(SERVER_URL + "/sendword", {"word": wordEntered, "publish" : "false"}, callback1).fail(errorCallback1);
       }
     }
   }

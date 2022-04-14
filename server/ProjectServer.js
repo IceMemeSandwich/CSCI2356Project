@@ -29,6 +29,7 @@ var posts = {
        "posted": false
     }
  };
+var words = {};
 
 // Connecting to the database (I'l put mine in for now)
 // had to run this command on mysql server to get it working
@@ -45,12 +46,13 @@ database.connect();
 // both to avoid changing some code and to make it somewhat more secure
 // - Devin R.
 function updateServer() {
+  // Updating Posts
   database.query(
     "SELECT * FROM Posts;",
     function (err, res) {
       if (err) throw err;
       else {
-        for (let i = 0; i <= res.length; i++) {
+        for (let i = 0; i < res.length; i++) {
           if (res[i] != undefined) {
             posts[res[i].id]["title"] = res[i].title;
             posts[res[i].id]["post"] = res[i].post;
@@ -64,9 +66,20 @@ function updateServer() {
       };
     }
   );
+  // Updating WordBank
+  database.query(
+    // using "ORDER BY" so wordbank is in proper order
+    "SELECT * FROM WordBank ORDER BY `id`;",
+    function (err, res) {
+      if (err) throw err;
+      else {
+        for (let i = 0; i < res.length; i++) {
+          words[i + 1] = res[i].word
+      };
+    }
+  });
 };
 updateServer()
-
 // These are the commands that are used to make the tables that will be used
 // CREATE TABLE Posts(
 //    id INT PRIMARY KEY,
@@ -139,21 +152,39 @@ app.post("/send", function (req, res) {
          break;
     }
 });
+// WordBank Area
 
 app.post("/sendword", function (req, res) {
   // The server already checks if it (the new word ) already exists - Devin R.
   console.log(req.body.word);
-  let query = "INSERT INTO WordBank (word) VALUES (?)";
-         database.query(query, req.body.word, function(err) {
+  switch (req.body.publish) {
+    case "true":
+         database.query("INSERT INTO WordBank (word) VALUES (?)", req.body.word, function(err) {
           if(err) {
             console.log(err.message);
-          } else {
-            updateServer();
           }
         });
+      break;
+    case "false":
+         database.query("DELETE FROM WordBank WHERE word=?", req.body.word, function(err) {
+          if(err) {
+            console.log(err.message);
+          }
+        }); 
+        // cleaning out words so word can be removed from words
+        words = {};
+      break;
+  };
+  updateServer();
 });
 
-//Public side
+app.get("/receiveword", function (req, res) {
+  updateServer();
+  console.log(req.url);
+  return res.status(200).send(words);
+  });
+
+//Public side (uses ejs) - Devin R.
 app.get('/post/:id', function(req, res) {
   if (posts[req.params.id]["posted"] == false) {res.render('unposts')}
   else {
