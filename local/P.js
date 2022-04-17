@@ -12,6 +12,9 @@ var capsLockOn = false;
 var count = 0;
 var onlinePosts = {};
 var wordBankCount = 0;
+var wordBankEntries = [];
+var wordBankCharacterCount = 0;
+var wordBankCharacterCap = 100;
 
 function setup() {
 
@@ -216,6 +219,7 @@ function closeEdit() {
 
 function clearLocalCopy() {
   $("#textInputBox").val("");
+  $("#wordBankEntry").val("");
   // written by Connor MacNeil, Devin Robar
   window.localStorage.setItem('box' + activeBox.toString(), JSON.stringify($("#textInputBox").val()));
   closeEdit();
@@ -333,39 +337,48 @@ function wordStore(wordEntered = null) {
     // Upload to server
     $.post(SERVER_URL + "/sendword", {"word": wordEntered, "publish" : "true"}, callback1).fail(errorCallback1);
   };
-  let newWordButton = document.createElement("button");
-  let myDiv = document.getElementById("wordBankStorage");
-  let removeButton = document.createElement("button");
-  wordBankCount++;
-  let wordId = "word" + wordBankCount;
-  let removeWordId = "removeWord" + wordBankCount;
-  newWordButton.innerHTML = wordEntered;
-  removeButton.innerHTML = '<i class="bi bi-x-circle-fill"></i>';
-  newWordButton.type = "button";
-  removeButton.type = "button";
-  newWordButton.id = wordId;
-  removeButton.id = removeWordId;
-  newWordButton.classList.add("btn");
-  newWordButton.classList.add("btn-primary");
-  removeButton.classList.add("btn");
-  removeButton.classList.add("btn-primary");
-  newWordButton.onclick = function() {
-    let currChars = $("#textInputBox").val();
-    $("#textInputBox").val(currChars.concat(wordEntered));
-  }
-  removeButton.onclick = function() {
-    let confirmationCheck = confirm("Are you sure you want to remove this word?");
-    if (confirmationCheck == true) {
-      let confirmationCheck2 = confirm("Are you positive?");
-      if (confirmationCheck2 == true) {
-        document.getElementById(wordId).remove();
-        document.getElementById(removeWordId).remove();
-        $.post(SERVER_URL + "/sendword", {"word": wordEntered, "publish" : "false"}, callback1).fail(errorCallback1);
+  if (wordBankEntries.includes(wordEntered) == false) {
+    wordBankCharacterCount += wordEntered.length; // The newly added word's length is added to the total word bank character count - Connor M.
+    wordBankEntries.push(wordEntered); // Adds the entered word to the word bank array
+    let newWordButton = document.createElement("button"); // Creates the button representing the new word
+    let myDiv = document.getElementById("wordBankStorage"); // Obtains the div in which the word bank buttons are stored
+    let removeButton = document.createElement("button"); // Adds the remove from word bank button to the button group
+    wordBankCount++; // Adds 1 to the word bank word counter to account for the newly added word
+    let wordId = "word" + wordBankCount; // Names the word being entered with its respective individual number
+    let removeWordId = "removeWord" + wordBankCount; // Gives the word an individual name for being removed
+    newWordButton.innerHTML = wordEntered; // Displays the word on the button which represents it
+    removeButton.innerHTML = '<i class="bi bi-x-circle-fill"></i>'; // Shows a bootstrap X symbol on the delete word button
+    newWordButton.type = "button";
+    removeButton.type = "button";
+    newWordButton.id = wordId; // Makes the ID of the new word the previously recorded name
+    removeButton.id = removeWordId; // Does the same with the remove names
+    newWordButton.classList.add("btn");
+    newWordButton.classList.add("btn-primary");
+    removeButton.classList.add("btn");
+    removeButton.classList.add("btn-primary");
+    newWordButton.onclick = function() { // Sets up the onclick function for the newly created button
+      let currChars = $("#textInputBox").val(); // Gets the current text in the main text box
+      $("#textInputBox").val(currChars.concat(wordEntered + " ")); // Adds the new word to it along with a space
+    }
+    removeButton.onclick = function() {
+      let confirmationCheck = confirm("Are you sure you want to remove this word?"); // Confirmation checks
+      if (confirmationCheck == true) {
+        let confirmationCheck2 = confirm("Are you positive?");
+        if (confirmationCheck2 == true) {
+          document.getElementById(wordId).remove(); // Removes the word button
+          document.getElementById(removeWordId).remove(); // Removes the remove button tied to the word button
+          var wordIndex = wordBankEntries.indexOf(wordEntered); // Gets the index of the word being removed in the array
+          wordBankEntries.splice(wordIndex, 1); // Updates the wordBankEntries array
+          wordBankCharacterCount -= wordEntered.length; // Updates the word bank character count to remove the deleted word's length
+          $.post(SERVER_URL + "/sendword", {"word": wordEntered, "publish" : "false"}, callback1).fail(errorCallback1);
+        }
       }
     }
+    myDiv.appendChild(newWordButton); // Add the buttons to the previously obtained div
+    myDiv.appendChild(removeButton);
+  } else {
+    alert("This word has already been entered"); // Doesn't add buttons and instead tells user that they already have the word in their word bank
   }
-  myDiv.appendChild(newWordButton);
-  myDiv.appendChild(removeButton);
 }
 
 // Writing anything after this function will not work (for what reason i have no clue)
