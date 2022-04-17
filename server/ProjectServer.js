@@ -36,7 +36,7 @@ var words = {};
 let database = mysql.createConnection({
 host: "127.0.0.1",
 user: "d_robar",
-password: "",  //! Leaving password blank for git
+password: "fromMOSCOWnevada89",  
 database: "d_robar",
 connectTimeout: 10000,
 });
