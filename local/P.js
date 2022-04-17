@@ -334,10 +334,10 @@ function wordStore(wordEntered = null) {
   // just to be extra lazy - Devin R.
   if (wordEntered == null) {
     wordEntered = $("#wordBankEntry").val();
-  };
-  if (wordBankEntries.includes(wordEntered) == false) {
     // Upload to server
     $.post(SERVER_URL + "/sendword", {"word": wordEntered, "publish" : "true"}, callback1).fail(errorCallback1);
+  };
+  if (wordBankEntries.includes(wordEntered) == false) {
     wordBankCharacterCount += wordEntered.length; // The newly added word's length is added to the total word bank character count - Connor M.
     wordBankEntries.push(wordEntered); // Adds the entered word to the word bank array
     let newWordButton = document.createElement("button"); // Creates the button representing the new word
@@ -358,7 +358,7 @@ function wordStore(wordEntered = null) {
     removeButton.classList.add("btn-primary");
     newWordButton.onclick = function() { // Sets up the onclick function for the newly created button
       let currChars = $("#textInputBox").val(); // Gets the current text in the main text box
-      $("#textInputBox").val(currChars.concat(wordEntered)); // Adds the new word to it
+      $("#textInputBox").val(currChars.concat(wordEntered + " ")); // Adds the new word to it along with a space
     }
     removeButton.onclick = function() {
       let confirmationCheck = confirm("Are you sure you want to remove this word?"); // Confirmation checks
