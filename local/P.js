@@ -402,7 +402,7 @@ function addChar(selection) {
       // Connor M.
       // @ts-ignore
       $("#textInputBox").val(currChars.substring(0, currChars.length - 1));
-      $("#wordBankEntry").val(wordBankChars.substring(0, currChars.length - 1));
+      $("#wordBankEntry").val(wordBankChars.substring(0, wordBankChars.length - 1));
       break;
     case "enter":
       // Connor M.
@@ -412,14 +412,14 @@ function addChar(selection) {
     case "space":
       // @ts-ignore
       currChars = $("#textInputBox").val(currChars.concat(" "));
-      wordBankChars = $("#wordBankEntry").val(wordBankChars.concat(" "));
+      document.getElementById("wordBankEntry").value = "";
       break;
     default:
       switch (capsPressed) {
         case true:
           // @ts-ignore
           $("#textInputBox").val(currChars.concat(KEYS[selection][1]));
-          $("#wordBankEntry").val(currChars.concat(KEYS[selection][1]));
+          $("#wordBankEntry").val(wordBankChars.concat(KEYS[selection][1]));
           // @ts-ignore
           toCaps(false);
           // C-08 - Devin R.
@@ -440,6 +440,7 @@ function addChar(selection) {
             $("#textInputBox").val(currChars.concat("? "));
           }
           if ($("#wordBankEntry").val().slice(-1) == '.') {
+            console.log("Period Detected");
             document.getElementById("wordBankEntry").value = "";
           } else if ($("#wordBankEntry").val().slice(-1) == ',') {
             document.getElementById("wordBankEntry").value = "";
