@@ -169,3 +169,7 @@ body {
   background-color: rgb(24, 24, 24);
   transform: scale(2);
 }
+
+.wordBankWrap {
+  flex-wrap: wrap;
+}
