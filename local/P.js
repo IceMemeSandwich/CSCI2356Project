@@ -440,7 +440,6 @@ function addChar(selection) {
             $("#textInputBox").val(currChars.concat("? "));
           }
           if ($("#wordBankEntry").val().slice(-1) == '.') {
-            console.log("Period Detected");
             document.getElementById("wordBankEntry").value = "";
           } else if ($("#wordBankEntry").val().slice(-1) == ',') {
             document.getElementById("wordBankEntry").value = "";
