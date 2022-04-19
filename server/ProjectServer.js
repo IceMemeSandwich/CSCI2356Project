@@ -9,7 +9,8 @@ const mysql = require("mysql2"); // call mysql application
 const app = express(); // define top level function
 const port = 3111;
 
-// ejs settings
+// Using EJS (https://ejs.co/) for public facing sites
+// need to install 'ejs' using npm (see package.json)
 app.set('view engine', 'ejs');
 
 var posts = {
